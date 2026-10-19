@@ -197,20 +197,28 @@ body {
 
 .stream-tile {
   display: flex;
-  min-height: 5.75rem;
+  min-height: 7.25rem;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 1.15rem;
+  gap: 0.35rem;
+  border-radius: 1.25rem;
   border: 1px solid color-mix(in srgb, #9ddde5 38%, transparent);
   background:
     radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, #9ddde5 18%, transparent), transparent 58%),
     #132336;
   box-shadow: 0 0 28px color-mix(in srgb, #9ddde5 14%, transparent);
-  padding: 1rem 0.8rem;
+  padding: 1.1rem 0.85rem;
   text-align: center;
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   font-weight: 500;
   line-height: 1.7;
+}
+
+.stream-index {
+  color: #9ddde5;
+  font-size: 0.75rem;
+  line-height: 1;
 }
 
 .stream-tile-warm {
@@ -219,6 +227,114 @@ body {
     radial-gradient(120% 90% at 0% 100%, color-mix(in srgb, #edb28d 18%, transparent), transparent 60%),
     #132336;
   box-shadow: 0 0 28px color-mix(in srgb, #edb28d 16%, transparent);
+}
+
+.stream-tile-warm .stream-index {
+  color: #edb28d;
+}
+
+.home-hero {
+  position: relative;
+  isolation: isolate;
+}
+
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 38% 52% at 12% 42%, color-mix(in srgb, #9ddde5 18%, transparent), transparent 68%),
+    radial-gradient(ellipse 28% 36% at 78% 8%, color-mix(in srgb, #edb28d 14%, transparent), transparent 70%);
+}
+
+.home-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, #edb28d 42%, transparent);
+  background: color-mix(in srgb, #edb28d 10%, transparent);
+  padding: 0.15rem 0.85rem;
+  color: #edb28d;
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+
+.home-kicker::before {
+  content: "";
+  width: 0.4rem;
+  height: 0.4rem;
+  flex: none;
+  border-radius: 999px;
+  background: #9ddde5;
+  box-shadow: 0 0 10px #9ddde5;
+}
+
+.home-poster {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, #9ddde5 32%, transparent),
+    0 0 90px color-mix(in srgb, #9ddde5 24%, transparent),
+    0 36px 80px rgb(0 0 0 / 45%);
+}
+
+.home-notes {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.home-notes li {
+  border-inline-start: 2px solid color-mix(in srgb, #9ddde5 55%, transparent);
+  padding-inline-start: 0.85rem;
+}
+
+.home-note-label {
+  display: block;
+  color: #f5f7fa;
+  font-weight: 500;
+}
+
+.home-screen,
+.home-close {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.75rem;
+}
+
+.home-screen {
+  border: 1px solid color-mix(in srgb, #9ddde5 28%, transparent);
+  background:
+    radial-gradient(80% 70% at 100% 0%, color-mix(in srgb, #9ddde5 12%, transparent), transparent 58%),
+    #101e30;
+  padding: 1.75rem 1.15rem 1.35rem;
+  box-shadow:
+    inset 0 0 80px rgb(0 0 0 / 22%),
+    0 24px 60px rgb(0 0 0 / 28%);
+}
+
+.home-close {
+  border: 1px solid color-mix(in srgb, #edb28d 38%, transparent);
+  background:
+    radial-gradient(55% 80% at 100% 0%, color-mix(in srgb, #9ddde5 16%, transparent), transparent 62%),
+    radial-gradient(48% 70% at 0% 100%, color-mix(in srgb, #edb28d 16%, transparent), transparent 64%),
+    #132336;
+  padding: 2.4rem 1.35rem;
+  box-shadow: 0 24px 70px rgb(0 0 0 / 28%);
+}
+
+@media (min-width: 768px) {
+  .home-notes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .home-screen {
+    padding: 3rem 2.5rem 2.5rem;
+  }
+
+  .home-close {
+    padding: 4rem 3.25rem;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
