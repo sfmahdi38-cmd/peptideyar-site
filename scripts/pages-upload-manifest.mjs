@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
  * Upload static assets to Cloudflare Pages (Direct Upload) and print manifest JSON.
+ * Manifest keys use a leading slash, matching wrangler pages deploy.
  * Requires CF_PAGES_UPLOAD_JWT (from GET .../pages/projects/{name}/upload-token).
  */
 import fs from "node:fs";
@@ -10,6 +11,13 @@ import { hash as blake3Hash } from "blake3-wasm";
 const API = "https://api.cloudflare.com/client/v4";
 const directory = process.argv[2] ?? "out";
 const jwt = process.env.CF_PAGES_UPLOAD_JWT;
+
+const IGNORE = new Set([
+  "_worker.js",
+  "_redirects",
+  "_headers",
+  "_routes.json",
+]);
 
 if (!jwt) {
   console.error("CF_PAGES_UPLOAD_JWT is required");
@@ -32,13 +40,6 @@ function walk(dir, base = dir) {
     else entries.push(full);
   }
   return entries;
-}
-
-function deployPath(filepath, base) {
-  let rel = path.relative(base, filepath).split(path.sep).join("/");
-  if (rel.endsWith("/index.html")) rel = rel.slice(0, -"/index.html".length) + ".html";
-  else if (rel === "index.html") rel = "index.html";
-  return rel;
 }
 
 function contentType(filePath) {
@@ -76,11 +77,17 @@ async function cf(pathname, init = {}) {
 }
 
 const absDir = path.resolve(directory);
-const files = walk(absDir);
-const fileMap = files.map((filepath) => ({
+const files = walk(absDir)
+  .map((filepath) => {
+    const rel = path.relative(absDir, filepath).split(path.sep).join("/");
+    return { filepath, rel };
+  })
+  .filter(({ rel }) => !IGNORE.has(rel) && !rel.startsWith("functions/"));
+
+const fileMap = files.map(({ filepath, rel }) => ({
   filepath,
+  rel,
   hash: hashFile(filepath),
-  deployPath: deployPath(filepath, absDir),
   sizeInBytes: fs.statSync(filepath).size,
   contentType: contentType(filepath),
 }));
@@ -115,6 +122,6 @@ await cf("/pages/assets/upsert-hashes", {
 });
 
 const manifest = Object.fromEntries(
-  fileMap.map((f) => [f.deployPath, f.hash]),
+  fileMap.map((f) => [`/${f.rel}`, f.hash]),
 );
 process.stdout.write(JSON.stringify(manifest));
