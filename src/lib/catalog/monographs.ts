@@ -4,6 +4,9 @@ export type LiteratureNote = {
   title: string;
   journal: string;
   year: string;
+  /** PubMed ID, checked against PubMed. */
+  pmid: string;
+  doi: string;
   model: LocaleText;
   finding: LocaleText;
 };
@@ -19,9 +22,17 @@ export type Monograph = {
   storage: LocaleText;
 };
 
+/** Date the papers on every monograph were last checked against PubMed. */
+export const monographsReviewed = "2026-10-22";
+
 const storage: LocaleText = {
   fa: "نمونهٔ لیوفیلیزه را در آزمایشگاه خشک، دور از نور و معمولاً در دمای حدود ۲۰- درجه نگه می‌دارند. این جمله دستور رقیق‌سازی برای تزریق نیست.",
   en: "Laboratories keep lyophilized samples dry, away from light, and usually near −20°C. This is not an instruction to dilute anything for injection.",
+};
+
+const licensedStorage: LocaleText = {
+  fa: "فراوردهٔ مجاز طبق برگهٔ راهنمای خودش نگهداری می‌شود. ویال پژوهشی همان زنجیرهٔ نگهداری و کنترل کیفیت را ندارد.",
+  en: "The licensed product is stored as its own leaflet says. A research vial does not come with that storage chain or quality control.",
 };
 
 export const monographs: Record<string, Monograph> = {
@@ -58,6 +69,8 @@ export const monographs: Record<string, Monograph> = {
         title: "The promoting effect of pentadecapeptide BPC 157 on tendon healing involves tendon outgrowth, cell survival, and cell migration",
         journal: "Journal of Applied Physiology",
         year: "2011",
+        pmid: "21030672",
+        doi: "10.1152/japplphysiol.00945.2010",
         model: { fa: "کشت سلول تاندون و مدل جونده", en: "Tendon-cell culture and a rodent model" },
         finding: {
           fa: "نویسندگان افزایش رشد و مهاجرت سلول تاندون را از مسیر FAK-paxillin گزارش کردند.",
@@ -97,9 +110,11 @@ export const monographs: Record<string, Monograph> = {
     ],
     literature: [
       {
-        title: "Thymosin β4 activates integrin-linked kinase and promotes cardiac cell migration, survival and cardiac repair",
+        title: "Thymosin beta4 activates integrin-linked kinase and promotes cardiac cell migration, survival and cardiac repair",
         journal: "Nature",
         year: "2004",
+        pmid: "15565145",
+        doi: "10.1038/nature03000",
         model: { fa: "انسداد کرونر در موش", en: "Mouse coronary ligation" },
         finding: {
           fa: "تیموزین بتا-۴ با کمپلکس ILK-PINCH و مسیر Akt به بقای سلول قلبی نسبت داده شد.",
@@ -169,6 +184,8 @@ export const monographs: Record<string, Monograph> = {
         title: "Stimulation of collagen synthesis in fibroblast cultures by the tripeptide-copper complex glycyl-L-histidyl-L-lysine-Cu2+",
         journal: "FEBS Letters",
         year: "1988",
+        pmid: "3169264",
+        doi: "10.1016/0014-5793(88)80509-x",
         model: { fa: "کشت فیبروبلاست", en: "Fibroblast culture" },
         finding: {
           fa: "کمپلکس GHK-Cu در غلظت پایین با افزایش سنتز کلاژن در کشت همراه بود.",
@@ -204,13 +221,27 @@ export const monographs: Record<string, Monograph> = {
     ],
     literature: [
       {
-        title: "Peptide promotes overcoming of the division limit in human somatic cell",
+        title: "Epithalon peptide induces telomerase activity and telomere elongation in human somatic cells",
         journal: "Bulletin of Experimental Biology and Medicine",
         year: "2003",
-        model: { fa: "کشت فیبروبلاست انسان", en: "Human fibroblast culture" },
+        pmid: "12937682",
+        doi: "10.1023/a:1025493705728",
+        model: { fa: "کشت فیبروبلاست جنینی انسان", en: "Human fetal fibroblast culture" },
         finding: {
-          fa: "گروه خاوینسون گزارش کرد که اپیتالون فعالیت تلومراز را در فیبروبلاست القا می‌کند.",
-          en: "The Khavinson group reported that Epitalon induced telomerase activity in fibroblasts.",
+          fa: "گروه خاوینسون گزارش کرد که اپیتالون در سلول‌های فاقد تلومراز، بیان زیرواحد کاتالیتیک و فعالیت تلومراز را القا می‌کند.",
+          en: "The Khavinson group reported that Epitalon induced expression of the catalytic subunit and telomerase activity in telomerase-negative cells.",
+        },
+      },
+      {
+        title: "Peptide promotes overcoming of the division limit in human somatic cell",
+        journal: "Bulletin of Experimental Biology and Medicine",
+        year: "2004",
+        pmid: "15455129",
+        doi: "10.1023/b:bebm.0000038164.49947.8c",
+        model: { fa: "کشت فیبروبلاست ریهٔ جنین انسان", en: "Human fetal lung fibroblast culture" },
+        finding: {
+          fa: "همان گروه گزارش کرد که سلول‌های تیمارشده تلومر بلندتر داشتند و ۱۰ تقسیم بیشتر از سلول شاهد انجام دادند. این نتیجهٔ کشت سلول است، نه طول عمر انسان.",
+          en: "The same group reported longer telomeres and 10 extra divisions compared with control cells. That is a cell-culture result, not human lifespan.",
         },
       },
     ],
@@ -245,6 +276,8 @@ export const monographs: Record<string, Monograph> = {
         title: "Semax, an analog of ACTH(4-10) with cognitive effects, regulates BDNF and trkB expression in the rat hippocampus",
         journal: "Brain Research",
         year: "2006",
+        pmid: "16996037",
+        doi: "10.1016/j.brainres.2006.07.108",
         model: { fa: "هیپوکامپ موش", en: "Rat hippocampus" },
         finding: {
           fa: "یک نوبت سماکس با افزایش BDNF و mRNA گیرندهٔ TrkB همراه بود.",
@@ -280,9 +313,11 @@ export const monographs: Record<string, Monograph> = {
     ],
     literature: [
       {
-        title: "Selank administration affects the expression of some genes involved in GABAergic neurotransmission",
+        title: "Selank Administration Affects the Expression of Some Genes Involved in GABAergic Neurotransmission",
         journal: "Frontiers in Pharmacology",
         year: "2016",
+        pmid: "26924987",
+        doi: "10.3389/fphar.2016.00031",
         model: { fa: "قشر پیشانی موش", en: "Rat frontal cortex" },
         finding: {
           fa: "پس از تجویز، بیان تعدادی از ژن‌های انتقال گابا تغییر کرد.",
@@ -321,6 +356,8 @@ export const monographs: Record<string, Monograph> = {
         title: "Ipamorelin, the first selective growth hormone secretagogue",
         journal: "European Journal of Endocrinology",
         year: "1998",
+        pmid: "9849822",
+        doi: "10.1530/eje.0.1390552",
         model: { fa: "کشت هیپوفیز و چند گونه", en: "Pituitary culture and several species" },
         finding: {
           fa: "ترشح هورمون رشد دیده شد، بدون افزایش ACTH و کورتیزول که با GHRPهای قدیمی‌تر همراه بود.",
@@ -382,9 +419,11 @@ export const monographs: Record<string, Monograph> = {
     ],
     literature: [
       {
-        title: "Prolonged stimulation of growth hormone and insulin-like growth factor I secretion by CJC-1295, a long-acting analog of GH-releasing hormone, in healthy adults",
+        title: "Prolonged stimulation of growth hormone (GH) and insulin-like growth factor I secretion by CJC-1295, a long-acting analog of GH-releasing hormone, in healthy adults",
         journal: "Journal of Clinical Endocrinology & Metabolism",
         year: "2006",
+        pmid: "16352683",
+        doi: "10.1210/jc.2005-1536",
         model: { fa: "کارآزمایی دارونما در بزرگسال سالم", en: "Placebo-controlled trial in healthy adults" },
         finding: {
           fa: "CJC-1295 دارای DAC سطح میانگین هورمون رشد و IGF-1 را به‌صورت وابسته به دوز بالا برد.",
@@ -392,13 +431,594 @@ export const monographs: Record<string, Monograph> = {
         },
       },
       {
-        title: "Pulsatile secretion of growth hormone persists during continuous stimulation by CJC-1295",
+        title: "Pulsatile secretion of growth hormone (GH) persists during continuous stimulation by CJC-1295, a long-acting GH-releasing hormone analog",
         journal: "Journal of Clinical Endocrinology & Metabolism",
         year: "2006",
+        pmid: "17018654",
+        doi: "10.1210/jc.2006-1702",
         model: { fa: "نمونه‌گیری مکرر شبانه‌روزی", en: "Frequent round-the-clock sampling" },
         finding: {
           fa: "حتی با تحریک مداوم گیرنده، ضربان ترشح هورمون رشد حفظ شد.",
           en: "Even with continuous receptor stimulation, growth-hormone pulses remained.",
+        },
+      },
+    ],
+    storage,
+  },
+  semaglutide: {
+    sequence: ["His", "Aib", "Glu", "Gly", "Thr", "Phe", "Thr", "Ser", "Asp", "Val", "Ser", "Ser", "Tyr", "Leu", "Glu", "Gly", "Gln", "Ala", "Ala", "Lys(C18)", "Glu", "Phe", "Ile", "Ala", "Trp", "Leu", "Val", "Arg", "Gly", "Arg", "Gly"],
+    sequenceNote: {
+      fa: "۳۱ ریشه بر پایهٔ GLP-1(7-37) انسان. Aib در جایگاه ۲ آن را در برابر آنزیم DPP-4 مقاوم می‌کند، Arg جای Lys را در جایگاه ۲۸ گرفته و روی لیزین جایگاه ۲۰ یک اسید چرب C18 با رابط وصل است که به آلبومین می‌چسبد.",
+      en: "31 residues built on human GLP-1(7-37). Aib at position 2 resists DPP-4, Arg replaces Lys at position 28, and the lysine at position 20 carries a C18 fatty diacid on a linker that binds albumin.",
+    },
+    halfLife: {
+      fa: "حدود یک هفته، به‌خاطر اتصال به آلبومین و مقاومت در برابر DPP-4. به همین دلیل قلم مجاز آن هفتگی است.",
+      en: "About one week, because of albumin binding and DPP-4 resistance. That is why the licensed pen is weekly.",
+    },
+    receptors: {
+      fa: "گیرندهٔ GLP-1 (GLP-1R) در پانکراس، مغز و دستگاه گوارش.",
+      en: "The GLP-1 receptor (GLP-1R) in the pancreas, brain, and gut.",
+    },
+    mechanism: {
+      fa: "سماگلوتاید گیرندهٔ GLP-1 را فعال می‌کند: ترشح انسولین را وابسته به قند خون بالا می‌برد، ترشح گلوکاگون را کم می‌کند، تخلیهٔ معده را کند می‌کند و از راه مغز اشتها را پایین می‌آورد. بیشتر کاهش وزن نتیجهٔ کم شدن دریافت غذاست.",
+      en: "Semaglutide activates the GLP-1 receptor: it raises glucose-dependent insulin release, lowers glucagon, slows gastric emptying, and reduces appetite through the brain. Most of the weight loss comes from eating less.",
+    },
+    studies: [
+      {
+        fa: "STEP 1 (۱۹۶۱ بزرگسال بدون دیابت، ۶۸ هفته): میانگین کاهش وزن ۱۴٫۹٪ در برابر ۲٫۴٪ با دارونما.",
+        en: "STEP 1 (1,961 adults without diabetes, 68 weeks): mean weight change −14.9% versus −2.4% with placebo.",
+      },
+      {
+        fa: "SUSTAIN-6 (۳۲۹۷ بیمار دیابت نوع ۲ با خطر قلبی بالا): رویداد قلبی‌عروقی اصلی ۶٫۶٪ در برابر ۸٫۹٪. عوارض رتینوپاتی در گروه دارو بیشتر بود.",
+        en: "SUSTAIN-6 (3,297 type 2 diabetes patients at high cardiovascular risk): major cardiovascular events 6.6% versus 8.9%. Retinopathy complications were more frequent on the drug.",
+      },
+      {
+        fa: "عارضه‌های شایع گوارشی‌اند و بیشترین دلیل قطع دارو بودند. این داده‌ها مال قلم مجاز با نظارت پزشک است، نه ویال پژوهشی.",
+        en: "Gastrointestinal effects are common and were the main reason for stopping. These data belong to the licensed pen under medical supervision, not to a research vial.",
+      },
+    ],
+    literature: [
+      {
+        title: "Once-Weekly Semaglutide in Adults with Overweight or Obesity",
+        journal: "New England Journal of Medicine",
+        year: "2021",
+        pmid: "33567185",
+        doi: "10.1056/NEJMoa2032183",
+        model: { fa: "کارآزمایی تصادفی دوسوکور، بزرگسال دارای چاقی یا اضافه‌وزن", en: "Randomised double-blind trial in adults with obesity or overweight" },
+        finding: {
+          fa: "در ۶۸ هفته، میانگین کاهش وزن ۱۴٫۹٪ در برابر ۲٫۴٪ با دارونما بود.",
+          en: "Over 68 weeks, mean weight loss was 14.9% versus 2.4% with placebo.",
+        },
+      },
+      {
+        title: "Semaglutide and Cardiovascular Outcomes in Patients with Type 2 Diabetes",
+        journal: "New England Journal of Medicine",
+        year: "2016",
+        pmid: "27633186",
+        doi: "10.1056/NEJMoa1607141",
+        model: { fa: "کارآزمایی تصادفی در دیابت نوع ۲ با خطر قلبی بالا", en: "Randomised trial in type 2 diabetes at high cardiovascular risk" },
+        finding: {
+          fa: "خطر مرگ قلبی، سکتهٔ قلبی یا مغزی غیرکشنده کمتر بود (نسبت خطر ۰٫۷۴)، ولی عوارض رتینوپاتی بیشتر بود.",
+          en: "Cardiovascular death, non-fatal heart attack, or non-fatal stroke was lower (hazard ratio 0.74), but retinopathy complications were higher.",
+        },
+      },
+    ],
+    storage: licensedStorage,
+  },
+  tirzepatide: {
+    sequence: ["Tyr", "Aib", "Glu", "Gly", "Thr", "Phe", "Thr", "Ser", "Asp", "Tyr", "Ser", "Ile", "Aib", "Leu", "Asp", "Lys", "Ile", "Ala", "Gln", "Lys(C20)", "Ala", "Phe", "Val", "Gln", "Trp", "Leu", "Ile", "Ala", "Gly", "Gly", "Pro", "Ser", "Ser", "Gly", "Ala", "Pro", "Pro", "Pro", "Ser-NH2"],
+    sequenceNote: {
+      fa: "۳۹ ریشه بر پایهٔ توالی GIP، با دو Aib و انتهای C آمیدی. لیزین جایگاه ۲۰ یک اسید چرب C20 دارد که به آلبومین می‌چسبد.",
+      en: "39 residues built on the GIP sequence, with two Aib residues and an amidated C-terminus. The lysine at position 20 carries a C20 fatty diacid that binds albumin.",
+    },
+    halfLife: {
+      fa: "حدود پنج روز. از ابتدا برای تزریق هفتگی طراحی شد.",
+      en: "About five days. It was designed from the start for once-weekly injection.",
+    },
+    receptors: {
+      fa: "گیرندهٔ GIP و گیرندهٔ GLP-1، با اثر قوی‌تر روی گیرندهٔ GIP.",
+      en: "The GIP and GLP-1 receptors, with stronger activity at the GIP receptor.",
+    },
+    mechanism: {
+      fa: "تیرزپاتاید گیرندهٔ هر دو هورمون اینکرتین را فعال می‌کند. در موش، کاهش وزن و دریافت غذا بیشتر از یک آگونیست انتخابی GLP-1 بود. سهم دقیق گیرندهٔ GIP در انسان هنوز محل بحث است.",
+      en: "Tirzepatide activates the receptors of both incretin hormones. In mice it cut body weight and food intake more than a selective GLP-1 agonist. The exact share of the GIP receptor in humans is still debated.",
+    },
+    studies: [
+      {
+        fa: "SURMOUNT-1 (۲۵۳۹ بزرگسال بدون دیابت، ۷۲ هفته): میانگین کاهش وزن از ۱۵٪ تا ۲۰٫۹٪ در سه سطح دوز، در برابر ۳٫۱٪ با دارونما.",
+        en: "SURMOUNT-1 (2,539 adults without diabetes, 72 weeks): mean weight change from −15% to −20.9% across three dose levels, versus −3.1% with placebo.",
+      },
+      {
+        fa: "فاز ۱: عارضه‌های اصلی گوارشی (تهوع، استفراغ، اسهال) و وابسته به دوز بودند.",
+        en: "Phase 1: the main side effects were gastrointestinal (nausea, vomiting, diarrhoea) and dose-dependent.",
+      },
+    ],
+    literature: [
+      {
+        title: "Tirzepatide Once Weekly for the Treatment of Obesity",
+        journal: "New England Journal of Medicine",
+        year: "2022",
+        pmid: "35658024",
+        doi: "10.1056/NEJMoa2206038",
+        model: { fa: "کارآزمایی فاز ۳ تصادفی دوسوکور در چاقی", en: "Phase 3 randomised double-blind obesity trial" },
+        finding: {
+          fa: "در ۷۲ هفته، هر سه سطح دوز کاهش وزنی بسیار بیشتر از دارونما داشتند.",
+          en: "Over 72 weeks, all three dose levels produced far more weight loss than placebo.",
+        },
+      },
+      {
+        title: "LY3298176, a novel dual GIP and GLP-1 receptor agonist for the treatment of type 2 diabetes mellitus: From discovery to clinical proof of concept",
+        journal: "Molecular Metabolism",
+        year: "2018",
+        pmid: "30473097",
+        doi: "10.1016/j.molmet.2018.09.009",
+        model: { fa: "سلول، موش و فاز ۱ انسانی", en: "Cells, mice, and human phase 1" },
+        finding: {
+          fa: "مقالهٔ کشف دارو: فعال شدن هر دو گیرنده در سلول، کاهش وزن در موش و پروفایل مناسب برای تزریق هفتگی در انسان.",
+          en: "The discovery paper: both receptors activated in cells, weight loss in mice, and a profile suited to weekly injection in people.",
+        },
+      },
+    ],
+    storage: licensedStorage,
+  },
+  retatrutide: {
+    halfLife: {
+      fa: "برای تزریق هفتگی طراحی شده و کارآزمایی فاز ۲ هم با تزریق هفتگی انجام شد.",
+      en: "Designed for once-weekly injection, and the phase 2 trial used weekly injections.",
+    },
+    receptors: {
+      fa: "سه گیرنده: GIP، GLP-1 و گلوکاگون.",
+      en: "Three receptors: GIP, GLP-1, and glucagon.",
+    },
+    mechanism: {
+      fa: "افزودن اثر گلوکاگون به دو گیرندهٔ اینکرتین با این فرض طراحی شد که مصرف انرژی و سوخت چربی کبد هم بالا برود. این صفحه فقط کارآزمایی فاز ۲ منتشرشده در NEJM را خلاصه می‌کند. نتیجه و وضعیت مجوز پس از فاز ۳ را باید از مرجع دارویی دید.",
+      en: "Adding glucagon activity to the two incretin receptors was meant to raise energy expenditure and liver fat burning as well. This page only summarises the phase 2 trial published in NEJM. Phase 3 results and licensing status have to be checked with a medicines regulator.",
+    },
+    studies: [
+      {
+        fa: "فاز ۲ (۳۳۸ بزرگسال، ۴۸ هفته): در هفتهٔ ۲۴، میانگین کاهش وزن در بالاترین سطح دوز ۱۷٫۵٪ بود، در برابر ۱٫۶٪ با دارونما.",
+        en: "Phase 2 (338 adults, 48 weeks): at week 24, mean weight change at the highest dose level was −17.5%, versus −1.6% with placebo.",
+      },
+      {
+        fa: "عارضه‌های شایع گوارشی بودند و با دوز بالاتر بیشتر شدند. افزایش ضربان قلب وابسته به دوز هم گزارش شد.",
+        en: "Common side effects were gastrointestinal and rose with dose. A dose-related rise in heart rate was also reported.",
+      },
+    ],
+    literature: [
+      {
+        title: "Triple-Hormone-Receptor Agonist Retatrutide for Obesity - A Phase 2 Trial",
+        journal: "New England Journal of Medicine",
+        year: "2023",
+        pmid: "37366315",
+        doi: "10.1056/NEJMoa2301972",
+        model: { fa: "کارآزمایی فاز ۲ تصادفی دوسوکور در چاقی", en: "Phase 2 randomised double-blind obesity trial" },
+        finding: {
+          fa: "کاهش وزن وابسته به دوز بود و در ۲۴ هفته در بالاترین سطح دوز به ۱۷٫۵٪ رسید.",
+          en: "Weight loss was dose-dependent and reached 17.5% at the highest dose level by week 24.",
+        },
+      },
+    ],
+    storage,
+  },
+  "pt-141": {
+    sequence: ["Ac-Nle", "Asp", "His", "D-Phe", "Arg", "Trp", "Lys-OH"],
+    sequenceNote: {
+      fa: "هفت ریشهٔ حلقوی: پیوند لاکتام بین Asp و Lys حلقه را می‌بندد. اسکلت آن همان ملانوتان ۲ است، با این تفاوت که انتهای C اسید آزاد است نه آمید.",
+      en: "Seven cyclic residues: a lactam bond between Asp and Lys closes the ring. The scaffold is that of Melanotan II, except that the C-terminus is a free acid rather than an amide.",
+    },
+    halfLife: {
+      fa: "در برگهٔ فراوردهٔ آمریکایی، نیمه‌عمر پلاسمایی چندساعته ذکر شده است.",
+      en: "The US product label gives a plasma half-life of a few hours.",
+    },
+    receptors: {
+      fa: "گیرنده‌های ملانوکورتین، به‌ویژه MC4R در مغز. فعالیت روی MC1R هم دارد.",
+      en: "Melanocortin receptors, chiefly MC4R in the brain. It also acts at MC1R.",
+    },
+    mechanism: {
+      fa: "برملانوتید با فعال کردن MC4R در مسیرهای مغزیِ میل جنسی کار می‌کند، نه با گشاد کردن عروق مثل سیلدنافیل. فعالیت روی MC1R توضیح می‌دهد چرا تیره شدن موضعی پوست در برگهٔ فراورده آمده است.",
+      en: "Bremelanotide works by activating MC4R in brain pathways of sexual desire, not by widening blood vessels like sildenafil. Its MC1R activity explains why focal skin darkening appears on the label.",
+    },
+    studies: [
+      {
+        fa: "RECONNECT (دو کارآزمایی فاز ۳، ۱۲۶۷ زن پیش از یائسگی، ۲۴ هفته): افزایش معنادار امتیاز میل جنسی و کاهش پریشانی مرتبط با آن نسبت به دارونما.",
+        en: "RECONNECT (two phase 3 trials, 1,267 premenopausal women, 24 weeks): significant gains in desire scores and less related distress versus placebo.",
+      },
+      {
+        fa: "تهوع شایع‌ترین عارضه بود. افزایش گذرای فشار خون هم در برگهٔ فراورده هشدار داده شده است.",
+        en: "Nausea was the commonest side effect. A transient rise in blood pressure is also a label warning.",
+      },
+      {
+        fa: "با نام Vyleesi در آمریکا مجوز دارد. داروی مجاز بریتانیا یا EMA نیست.",
+        en: "Licensed in the United States as Vyleesi. It is not a UK or EMA authorised medicine.",
+      },
+    ],
+    literature: [
+      {
+        title: "Bremelanotide for the Treatment of Hypoactive Sexual Desire Disorder: Two Randomized Phase 3 Trials",
+        journal: "Obstetrics & Gynecology",
+        year: "2019",
+        pmid: "31599840",
+        doi: "10.1097/AOG.0000000000003500",
+        model: { fa: "دو کارآزمایی فاز ۳ تصادفی دوسوکور", en: "Two randomised double-blind phase 3 trials" },
+        finding: {
+          fa: "در هر دو کارآزمایی، میل جنسی بیشتر و پریشانی کمتر از گروه دارونما بود.",
+          en: "In both trials, desire rose and distress fell more than with placebo.",
+        },
+      },
+    ],
+    storage: licensedStorage,
+  },
+  "melanotan-ii": {
+    sequence: ["Ac-Nle", "Asp", "His", "D-Phe", "Arg", "Trp", "Lys-NH2"],
+    sequenceNote: {
+      fa: "قطعهٔ ۴ تا ۱۰ α-MSH با نورلوسین و D-Phe، حلقوی با پل لاکتام بین Asp و Lys و انتهای C آمیدی.",
+      en: "The α-MSH 4–10 fragment with norleucine and D-Phe, cyclised by an Asp–Lys lactam bridge, with an amidated C-terminus.",
+    },
+    halfLife: {
+      fa: "نیمه‌عمر انسانیِ دارای پروانه ندارد. فقط یک مطالعهٔ کوچک فاز ۱ منتشر شده است.",
+      en: "There is no authorised human half-life. Only a small phase 1 study has been published.",
+    },
+    receptors: {
+      fa: "غیرانتخابی روی گیرنده‌های ملانوکورتین: MC1R (رنگدانه) و MC3R/MC4R (اشتها و رفتار جنسی).",
+      en: "Non-selective at melanocortin receptors: MC1R (pigment) and MC3R/MC4R (appetite and sexual behaviour).",
+    },
+    mechanism: {
+      fa: "ملانوتان ۲ مثل α-MSH ولی قوی‌تر و پایدارتر عمل می‌کند. فعال شدن MC1R ملانین پوست را بالا می‌برد و فعال شدن MC4R نعوظ خودبه‌خود و کاهش اشتها را توضیح می‌دهد. همین غیرانتخابی بودن، طیف عارضه‌ها را هم توضیح می‌دهد.",
+      en: "Melanotan II acts like α-MSH, only stronger and longer-lasting. MC1R activation raises skin melanin, and MC4R activation explains spontaneous erections and reduced appetite. The same lack of selectivity explains its range of side effects.",
+    },
+    studies: [
+      {
+        fa: "فاز ۱ آزمایشی (۳ مرد): تیره شدن پوست، تهوع خفیف، خواب‌آلودگی و نعوظ خودبه‌خود گزارش شد.",
+        en: "Pilot phase 1 (3 men): skin darkening, mild nausea, drowsiness, and spontaneous erections were reported.",
+      },
+      {
+        fa: "پس از مصرف غیرمجاز، گزارش‌های موردی تغییر خال و ملانوم منتشر شده است. رابطهٔ علّی ثابت نشده، ولی همین گزارش‌ها دلیل پرچم «پرخطر» است.",
+        en: "Case reports of changing moles and melanoma have followed unlicensed use. Causation is not established, but those reports are why it carries a high-risk flag.",
+      },
+    ],
+    literature: [
+      {
+        title: "Evaluation of melanotan-II, a superpotent cyclic melanotropic peptide in a pilot phase-I clinical study",
+        journal: "Life Sciences",
+        year: "1996",
+        pmid: "8637402",
+        doi: "10.1016/0024-3205(96)00160-9",
+        model: { fa: "مطالعهٔ آزمایشی فاز ۱ در ۳ داوطلب", en: "Pilot phase 1 study in 3 volunteers" },
+        finding: {
+          fa: "تیره شدن پوست در انسان نشان داده شد، همراه با تهوع، خستگی و نعوظ خودبه‌خود.",
+          en: "Showed tanning in humans, along with nausea, fatigue, and spontaneous erections.",
+        },
+      },
+    ],
+    storage,
+  },
+  "mots-c": {
+    sequence: ["Met", "Arg", "Trp", "Gln", "Glu", "Met", "Gly", "Tyr", "Ile", "Phe", "Tyr", "Pro", "Arg", "Lys", "Leu", "Arg"],
+    sequenceNote: {
+      fa: "۱۶ ریشه که در ژن 12S rRNA میتوکندری رمز شده است.",
+      en: "16 residues encoded within the mitochondrial 12S rRNA gene.",
+    },
+    halfLife: {
+      fa: "دادهٔ فارماکوکینتیک انسانیِ منتشرشده و قابل اتکا ندارد.",
+      en: "There are no reliable published human pharmacokinetic data.",
+    },
+    receptors: {
+      fa: "گیرندهٔ کلاسیکِ شناخته‌شده ندارد. در مقالهٔ اصلی، مهار چرخهٔ فولات و فعال شدن AMPK در عضلهٔ اسکلتی گزارش شد.",
+      en: "No classical receptor is known. The original paper reported folate-cycle inhibition and AMPK activation in skeletal muscle.",
+    },
+    mechanism: {
+      fa: "MOTS-c از DNA میتوکندری ساخته می‌شود. در موش، با مهار چرخهٔ فولات و ساخت پورین، AMPK را فعال کرد و عضلهٔ اسکلتی هدف اصلی به نظر رسید. این یافته‌ها از موش است، نه کارآزمایی انسانی.",
+      en: "MOTS-c is made from mitochondrial DNA. In mice it inhibited the folate cycle and purine synthesis, activated AMPK, and skeletal muscle appeared to be the main target. These findings are from mice, not human trials.",
+    },
+    studies: [
+      {
+        fa: "موش با رژیم پرچرب: پیشگیری از مقاومت به انسولین و چاقی ناشی از رژیم.",
+        en: "Mice on a high-fat diet: prevention of diet-induced insulin resistance and obesity.",
+      },
+      {
+        fa: "موش مسن: پیشگیری از مقاومت به انسولینِ وابسته به سن.",
+        en: "Older mice: prevention of age-related insulin resistance.",
+      },
+      {
+        fa: "کارآزمایی انسانیِ منتشرشده‌ای که برای مجوز دارو کافی باشد وجود ندارد.",
+        en: "No published human trial is sufficient for a medicine licence.",
+      },
+    ],
+    literature: [
+      {
+        title: "The mitochondrial-derived peptide MOTS-c promotes metabolic homeostasis and reduces obesity and insulin resistance",
+        journal: "Cell Metabolism",
+        year: "2015",
+        pmid: "25738459",
+        doi: "10.1016/j.cmet.2015.02.009",
+        model: { fa: "سلول و موش", en: "Cells and mice" },
+        finding: {
+          fa: "MOTS-c معرفی شد و در موش از مقاومت به انسولین و چاقی ناشی از رژیم پرچرب پیشگیری کرد.",
+          en: "Introduced MOTS-c and showed it prevented insulin resistance and diet-induced obesity in mice.",
+        },
+      },
+    ],
+    storage,
+  },
+  "ss-31": {
+    sequence: ["D-Arg", "Dmt", "Lys", "Phe-NH2"],
+    sequenceNote: {
+      fa: "Dmt یعنی ۲′،۶′-دی‌متیل‌تیروزین. تتراپپتید کوچک با بار مثبت که به غشای داخلی میتوکندری می‌رسد.",
+      en: "Dmt is 2′,6′-dimethyltyrosine. A small, positively charged tetrapeptide that reaches the inner mitochondrial membrane.",
+    },
+    halfLife: {
+      fa: "دادهٔ فارماکوکینتیک انسانی از کارآزمایی‌های بیماری میتوکندریایی می‌آید و محدود است.",
+      en: "Human pharmacokinetic data come from mitochondrial-disease trials and are limited.",
+    },
+    receptors: {
+      fa: "کاردیولیپین در غشای داخلی میتوکندری. گیرندهٔ سطح سلولی ندارد.",
+      en: "Cardiolipin in the inner mitochondrial membrane. It has no cell-surface receptor.",
+    },
+    mechanism: {
+      fa: "SS-31 به کاردیولیپین می‌چسبد، فسفولیپیدی که برای چیدمان زنجیرهٔ تنفسی لازم است. فرض این است که با پایدار کردن کاردیولیپین، تولید انرژی بهتر و تولید رادیکال آزاد کمتر شود. سندرم بارت دقیقاً نقص در ساخت کاردیولیپین است.",
+      en: "SS-31 binds cardiolipin, a phospholipid the respiratory chain needs to stay organised. The idea is that stabilising cardiolipin improves energy production and reduces free-radical output. Barth syndrome is precisely a defect in cardiolipin synthesis.",
+    },
+    studies: [
+      {
+        fa: "TAZPOWER (۱۲ بیمار سندرم بارت): در بخش تصادفی متقاطع، دو پیامد اصلی به هدف نرسید. در ادامهٔ باز تا ۳۶ هفته، آزمون راه رفتن ۶ دقیقه و نشانه‌ها بهتر شد.",
+        en: "TAZPOWER (12 Barth syndrome patients): in the randomised crossover part, neither primary endpoint was met. In the open-label extension to 36 weeks, the 6-minute walk test and symptoms improved.",
+      },
+      {
+        fa: "FDA در سپتامبر ۲۰۲۵ با نام Forzinity برای سندرم بارت «مجوز سریع» داد. این مجوز بر پایهٔ یک نشانگر جانشین (قدرت عضلهٔ بازکنندهٔ زانو) است و کارآزمایی تأییدی لازم دارد.",
+        en: "In September 2025 the FDA granted accelerated approval as Forzinity for Barth syndrome. The approval rests on a surrogate marker (knee-extensor strength) and requires a confirmatory trial.",
+      },
+    ],
+    literature: [
+      {
+        title: "A phase 2/3 randomized clinical trial followed by an open-label extension to evaluate the effectiveness of elamipretide in Barth syndrome, a genetic disorder of mitochondrial cardiolipin metabolism",
+        journal: "Genetics in Medicine",
+        year: "2021",
+        pmid: "33077895",
+        doi: "10.1038/s41436-020-01006-8",
+        model: { fa: "کارآزمایی متقاطع تصادفی و ادامهٔ باز", en: "Randomised crossover trial and open-label extension" },
+        finding: {
+          fa: "بخش تصادفی به هدف اصلی نرسید؛ در ادامهٔ باز، راه رفتن و نشانه‌ها بهتر شد.",
+          en: "The randomised part missed its primary endpoints; walking and symptoms improved in the open-label extension.",
+        },
+      },
+    ],
+    storage,
+  },
+  "thymosin-alpha-1": {
+    sequence: ["Ac-Ser", "Asp", "Ala", "Ala", "Val", "Asp", "Thr", "Ser", "Ser", "Glu", "Ile", "Thr", "Thr", "Lys", "Asp", "Leu", "Lys", "Glu", "Lys", "Lys", "Glu", "Val", "Val", "Glu", "Glu", "Ala", "Glu", "Asn"],
+    sequenceNote: {
+      fa: "۲۸ ریشه با استیل در انتهای N. نخستین بار از تیموس گوساله جدا و توالی‌یابی شد.",
+      en: "28 residues with an N-terminal acetyl group. It was first isolated from calf thymus and sequenced.",
+    },
+    halfLife: {
+      fa: "نیمه‌عمر پلاسمایی حدود دو ساعت گزارش شده است.",
+      en: "A plasma half-life of about two hours has been reported.",
+    },
+    receptors: {
+      fa: "در پژوهش‌ها، گیرنده‌های شبه Toll (TLR) روی سلول‌های دندریتیک مطرح شده‌اند.",
+      en: "Studies point to Toll-like receptors (TLRs) on dendritic cells.",
+    },
+    mechanism: {
+      fa: "تیموزین آلفا-۱ بیشتر تعدیل‌کنندهٔ ایمنی توصیف می‌شود: در پژوهش‌ها با بلوغ سلول T و فعال شدن سلول دندریتیک همراه بوده است. یک محرک عمومی ایمنی نیست و اثرش به وضعیت ایمنی بیمار بستگی دارد.",
+      en: "Thymosin alpha-1 is mostly described as an immune modulator: studies link it to T-cell maturation and dendritic-cell activation. It is not a general immune booster, and its effect depends on the patient’s immune state.",
+    },
+    studies: [
+      {
+        fa: "با نام Zadaxin (تیمالفاسین) در برخی کشورها برای هپاتیت B مزمن و به‌عنوان کمک ایمنی مجوز دارد. FDA آن را تأیید نکرده و مجوز مرکزی EMA ندارد.",
+        en: "Licensed in some countries as Zadaxin (thymalfasin) for chronic hepatitis B and as an immune adjuvant. It is not FDA approved and has no central EMA authorisation.",
+      },
+      {
+        fa: "مقالهٔ ۱۹۷۷ در PNAS ترکیب و توالی آن را گزارش کرد.",
+        en: "A 1977 PNAS paper reported its composition and sequence.",
+      },
+    ],
+    literature: [
+      {
+        title: "Thymosin alpha1: isolation and sequence analysis of an immunologically active thymic polypeptide",
+        journal: "Proceedings of the National Academy of Sciences",
+        year: "1977",
+        pmid: "265536",
+        doi: "10.1073/pnas.74.2.725",
+        model: { fa: "جداسازی از تیموس گوساله", en: "Isolation from calf thymus" },
+        finding: {
+          fa: "پلی‌پپتیدی اسیدی و مقاوم به حرارت با ۲۸ ریشه معرفی شد که ممکن است در تمایز سلول T نقش داشته باشد.",
+          en: "Described a heat-stable, acidic 28-residue polypeptide that may take part in T-cell differentiation.",
+        },
+      },
+    ],
+    storage: licensedStorage,
+  },
+  kpv: {
+    sequence: ["Lys", "Pro", "Val"],
+    sequenceNote: {
+      fa: "سه ریشهٔ انتهایی α-MSH (جایگاه ۱۱ تا ۱۳).",
+      en: "The last three residues of α-MSH (positions 11–13).",
+    },
+    halfLife: {
+      fa: "دادهٔ فارماکوکینتیک انسانی منتشر نشده است.",
+      en: "No human pharmacokinetic data have been published.",
+    },
+    receptors: {
+      fa: "در مقالهٔ Gastroenterology، KPV از راه ناقل پپتید PepT1 وارد سلول‌های روده و ایمنی شد و اثر ضدالتهابی‌اش به همین ناقل نسبت داده شد.",
+      en: "In the Gastroenterology paper, KPV entered gut and immune cells through the PepT1 peptide transporter, and its anti-inflammatory effect was attributed to that transporter.",
+    },
+    mechanism: {
+      fa: "در غلظت نانومولار، مسیرهای التهابی NF-κB و MAP کیناز را مهار کرد و ترشح سیتوکین‌های التهابی را کم کرد. PepT1 در التهاب روده در کولون بیشتر بیان می‌شود و همین، KPV را به یک ایدهٔ پژوهشی برای بیماری التهابی روده تبدیل کرده است.",
+      en: "At nanomolar concentrations it inhibited NF-κB and MAP-kinase inflammatory signalling and reduced inflammatory cytokine release. PepT1 is induced in the colon during gut inflammation, which is why KPV became a research idea for inflammatory bowel disease.",
+    },
+    studies: [
+      {
+        fa: "کشت سلول اپی‌تلیال روده و سلول T انسانی: کاهش سیگنال NF-κB.",
+        en: "Human intestinal epithelial and T-cell cultures: reduced NF-κB signalling.",
+      },
+      {
+        fa: "مدل کولیت موش (DSS و TNBS): KPV خوراکی در آب آشامیدنی شدت کولیت را کم کرد.",
+        en: "Mouse colitis models (DSS and TNBS): oral KPV in drinking water reduced colitis.",
+      },
+      {
+        fa: "کارآزمایی انسانی منتشرشده برای مجوز دارو وجود ندارد.",
+        en: "No published human trial supports a medicine licence.",
+      },
+    ],
+    literature: [
+      {
+        title: "PepT1-mediated tripeptide KPV uptake reduces intestinal inflammation",
+        journal: "Gastroenterology",
+        year: "2008",
+        pmid: "18061177",
+        doi: "10.1053/j.gastro.2007.10.026",
+        model: { fa: "کشت سلول انسانی و دو مدل کولیت موش", en: "Human cell culture and two mouse colitis models" },
+        finding: {
+          fa: "KPV از راه PepT1 جذب شد و التهاب سلولی و کولیت موش را کم کرد.",
+          en: "KPV was taken up through PepT1 and reduced cellular inflammation and colitis in mice.",
+        },
+      },
+    ],
+    storage,
+  },
+  "kisspeptin-10": {
+    sequence: ["Tyr", "Asn", "Trp", "Asn", "Gly", "Phe", "Gly", "Leu", "Arg", "Phe-NH2"],
+    sequenceNote: {
+      fa: "ده ریشهٔ انتهای C کیسپپتین-۵۴، با انتهای آمیدی. کوتاه‌ترین قطعه با فعالیت کامل روی گیرنده.",
+      en: "The ten C-terminal residues of kisspeptin-54, amidated. The shortest fragment with full activity at the receptor.",
+    },
+    halfLife: {
+      fa: "در پلاسما بسیار کوتاه (چند دقیقه) است. به همین دلیل در مطالعات انسانی از انفوزیون پیوسته هم استفاده شده است.",
+      en: "Very short in plasma (minutes). That is why human studies have also used continuous infusion.",
+    },
+    receptors: {
+      fa: "گیرندهٔ KISS1R (GPR54) روی نورون‌های GnRH هیپوتالاموس.",
+      en: "KISS1R (GPR54) on hypothalamic GnRH neurons.",
+    },
+    mechanism: {
+      fa: "کیسپپتین بالادست GnRH قرار دارد: با فعال کردن KISS1R، ترشح GnRH و در پی آن LH و FSH را بالا می‌برد. ژن KISS1 نخست به‌عنوان مهارکنندهٔ متاستاز شناخته شد و نام «متاستین» از همین‌جاست.",
+      en: "Kisspeptin sits upstream of GnRH: by activating KISS1R it raises GnRH release and, after it, LH and FSH. The KISS1 gene was first known as a metastasis suppressor, which is where the name metastin comes from.",
+    },
+    studies: [
+      {
+        fa: "مردان سالم: تزریق وریدی یک‌باره LH را سریع و وابسته به دوز بالا برد. انفوزیون پیوسته تستوسترون و فراوانی پالس LH را افزایش داد.",
+        en: "Healthy men: a single intravenous bolus raised LH quickly and dose-dependently. Continuous infusion raised testosterone and LH pulse frequency.",
+      },
+      {
+        fa: "مقالهٔ Nature در ۲۰۰۱ کیسپپتین را لیگاند گیرندهٔ یتیمِ GPR54 معرفی کرد.",
+        en: "A 2001 Nature paper identified kisspeptin as the ligand of the orphan receptor GPR54.",
+      },
+    ],
+    literature: [
+      {
+        title: "Kisspeptin-10 is a potent stimulator of LH and increases pulse frequency in men",
+        journal: "Journal of Clinical Endocrinology & Metabolism",
+        year: "2011",
+        pmid: "21632807",
+        doi: "10.1210/jc.2011-0089",
+        model: { fa: "مطالعهٔ بالینی در مردان سالم", en: "Clinical study in healthy men" },
+        finding: {
+          fa: "کیسپپتین-۱۰ محرک قوی LH بود و فراوانی و اندازهٔ پالس LH را بالا برد.",
+          en: "Kisspeptin-10 was a potent LH stimulator and increased LH pulse frequency and size.",
+        },
+      },
+      {
+        title: "Metastasis suppressor gene KiSS-1 encodes peptide ligand of a G-protein-coupled receptor",
+        journal: "Nature",
+        year: "2001",
+        pmid: "11385580",
+        doi: "10.1038/35079135",
+        model: { fa: "جداسازی از جفت انسان و سلول", en: "Isolation from human placenta, cell studies" },
+        finding: {
+          fa: "محصول ژن KiSS-1 (متاستین، ۵۴ ریشه) لیگاند درونی یک گیرندهٔ جفت‌شده با پروتئین G معرفی شد.",
+          en: "The KiSS-1 gene product (metastin, 54 residues) was identified as the endogenous ligand of a G-protein-coupled receptor.",
+        },
+      },
+    ],
+    storage,
+  },
+  tesamorelin: {
+    sequence: ["Hex-Tyr", "Ala", "Asp", "Ala", "Ile", "Phe", "Thr", "Asn", "Ser", "Tyr", "Arg", "Lys", "Val", "Leu", "Gly", "Gln", "Leu", "Ser", "Ala", "Arg", "Lys", "Leu", "Leu", "Gln", "Asp", "Ile", "Met", "Ser", "Arg", "Gln", "Gln", "Gly", "Glu", "Ser", "Asn", "Gln", "Glu", "Arg", "Gly", "Ala", "Arg", "Ala", "Arg", "Leu-NH2"],
+    sequenceNote: {
+      fa: "توالی کامل ۴۴ ریشه‌ای GHRH انسان با گروه trans-3-hexenoyl روی انتهای N که برش با DPP-4 را کند می‌کند.",
+      en: "The full 44-residue human GHRH sequence with a trans-3-hexenoyl group on the N-terminus, which slows cleavage by DPP-4.",
+    },
+    halfLife: {
+      fa: "در برگهٔ فراوردهٔ آمریکایی حدود نیم ساعت ذکر شده است.",
+      en: "The US product label gives about half an hour.",
+    },
+    receptors: {
+      fa: "گیرندهٔ GHRH روی هیپوفیز قدامی.",
+      en: "The GHRH receptor on the anterior pituitary.",
+    },
+    mechanism: {
+      fa: "تسامورلین ترشح هورمون رشد از خود هیپوفیز را بالا می‌برد؛ هورمون رشد تزریقی نیست. بالا رفتن هورمون رشد و IGF-1 با کاهش چربی احشایی همراه بود.",
+      en: "Tesamorelin raises growth-hormone release from the pituitary itself; it is not injected growth hormone. Higher growth hormone and IGF-1 went with less visceral fat.",
+    },
+    studies: [
+      {
+        fa: "۴۱۲ بیمار HIV با تجمع چربی شکمی، ۲۶ هفته: چربی احشایی ۱۵٫۲٪ کم شد، در برابر ۵٪ افزایش با دارونما. تری‌گلیسرید هم پایین آمد.",
+        en: "412 HIV patients with abdominal fat accumulation, 26 weeks: visceral fat fell 15.2%, versus a 5% rise with placebo. Triglycerides also fell.",
+      },
+      {
+        fa: "IGF-1 در گروه دارو ۸۱٪ بالا رفت. در برگهٔ فراورده دربارهٔ IGF-1 و قند خون هشدار آمده است.",
+        en: "IGF-1 rose 81% on the drug. The label carries warnings about IGF-1 and blood glucose.",
+      },
+      {
+        fa: "با نام Egrifta در آمریکا مجوز دارد و در فهرست ممنوعهٔ ورزشی است.",
+        en: "Licensed in the United States as Egrifta, and on the sports prohibited list.",
+      },
+    ],
+    literature: [
+      {
+        title: "Metabolic effects of a growth hormone-releasing factor in patients with HIV",
+        journal: "New England Journal of Medicine",
+        year: "2007",
+        pmid: "18057338",
+        doi: "10.1056/NEJMoa072375",
+        model: { fa: "کارآزمایی تصادفی چندمرکزی", en: "Multicentre randomised trial" },
+        finding: {
+          fa: "در ۲۶ هفته چربی احشایی و تری‌گلیسرید کاهش یافت و IGF-1 بالا رفت.",
+          en: "Over 26 weeks, visceral fat and triglycerides fell and IGF-1 rose.",
+        },
+      },
+    ],
+    storage: licensedStorage,
+  },
+  "aod-9604": {
+    sequence: ["Tyr", "Leu", "Arg", "Ile", "Val", "Gln", "Cys", "Arg", "Ser", "Val", "Glu", "Gly", "Ser", "Cys", "Gly", "Phe"],
+    sequenceNote: {
+      fa: "ریشه‌های ۱۷۷ تا ۱۹۱ هورمون رشد انسان با یک Tyr اضافه در انتهای N (در هورمون طبیعی جایگاه ۱۷۶ فنیل‌آلانین است). دو سیستئین پل دی‌سولفید می‌سازند.",
+      en: "Residues 177–191 of human growth hormone with an extra N-terminal Tyr (the natural hormone has phenylalanine at 176). The two cysteines form a disulfide bridge.",
+    },
+    halfLife: {
+      fa: "نیمه‌عمر انسانیِ دارای پروانه ندارد.",
+      en: "There is no authorised human half-life.",
+    },
+    receptors: {
+      fa: "گیرندهٔ هورمون رشد را مثل هورمون کامل فعال نمی‌کند. مسیر چربی‌سوزی آن در موش بررسی شده است.",
+      en: "It does not activate the growth-hormone receptor like the full hormone. Its fat-burning pathway was studied in mice.",
+    },
+    mechanism: {
+      fa: "ایدهٔ این قطعه جدا کردن اثر چربی‌سوزی هورمون رشد از اثر رشد و قند خون بود. در موش چاق، وزن و چربی بدن کم شد و بیان گیرندهٔ β3-آدرنرژیک بالا رفت، ولی اثر چربی‌سوزی مستقیماً از راه همین گیرنده نبود.",
+      en: "The idea was to separate growth hormone’s fat-burning effect from its growth and blood-sugar effects. In obese mice, body weight and fat fell and β3-adrenergic receptor expression rose, but the fat-burning effect did not run directly through that receptor.",
+    },
+    studies: [
+      {
+        fa: "موش چاق: کاهش وزن و چربی بدن پس از ۱۴ روز.",
+        en: "Obese mice: lower body weight and fat after 14 days.",
+      },
+      {
+        fa: "توسعهٔ بالینی آن برای چاقی به داروی مجاز نرسید.",
+        en: "Clinical development for obesity did not lead to a licensed medicine.",
+      },
+    ],
+    literature: [
+      {
+        title: "The effects of human GH and its lipolytic fragment (AOD9604) on lipid metabolism following chronic treatment in obese mice and beta(3)-AR knock-out mice",
+        journal: "Endocrinology",
+        year: "2001",
+        pmid: "11713213",
+        doi: "10.1210/endo.142.12.8522",
+        model: { fa: "موش چاق و موش فاقد گیرندهٔ β3", en: "Obese mice and β3-receptor knockout mice" },
+        finding: {
+          fa: "هورمون رشد و AOD9604 وزن و چربی موش چاق را کم کردند؛ اثر چربی‌سوزی مستقیماً از گیرندهٔ β3 نبود.",
+          en: "Growth hormone and AOD9604 cut weight and fat in obese mice; the fat-burning effect was not directly through the β3 receptor.",
         },
       },
     ],

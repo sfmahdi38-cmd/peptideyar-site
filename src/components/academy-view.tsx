@@ -51,12 +51,10 @@ const modules = [
     enTitle: "A SKU is not a substance",
     fa: [
       "فهرست تجاری اغلب یک ماده را در ویال ۲، ۵ و ۱۰ میلی‌گرمی سه بار می‌شمارد. دانشنامه ماده را یک بار نگه می‌دارد.",
-      "جمع چهار عددی که برای آن فهرست گفته شد ۵۲۹ است، نه ۵۴۷. اختلاف را با اختراع نام پر نکرده‌ایم.",
       "مخلوط‌هایی مثل GLOW یا Blend 300 نام بازاری‌اند. نسبت‌شان را فروشنده می‌نویسد و اینجا بازنویسی نشده است.",
     ],
     en: [
       "A trade list often counts one substance three times, as 2 mg, 5 mg, and 10 mg vials. The encyclopedia keeps the substance once.",
-      "The four figures given for that list add up to 529, not 547. The gap was not filled by inventing names.",
       "Mixtures such as GLOW or Blend 300 are marketplace names. The seller writes the ratio, and it is not copied here.",
     ],
   },
@@ -85,7 +83,7 @@ export function AcademyView() {
       <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
         {tx(lang, "پنج درس کوتاه برای خواندن همین کاتالوگ. هیچ‌کدام دستور کار آزمایش روی انسان نیست.", "Five short lessons for reading this catalog. None of them is a protocol for experimenting on a person.")}
       </p>
-      <Accordion multiple defaultValue={["peptide"]} className="mt-6 gap-3">
+      <Accordion multiple hiddenUntilFound defaultValue={["peptide"]} className="mt-6 gap-3">
         {modules.map((item) => (
           <AccordionItem key={item.id} value={item.id} className="rounded-2xl border border-slate-200 px-4 dark:border-slate-800">
             <AccordionTrigger className="text-base font-bold">{tx(lang, item.faTitle, item.enTitle)}</AccordionTrigger>

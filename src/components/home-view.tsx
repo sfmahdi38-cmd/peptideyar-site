@@ -3,8 +3,9 @@
 import { tx, useLanguage } from "@/components/language";
 import { Input } from "@/components/ui/input";
 import { sectionColor, Vial } from "@/components/vial";
-import { claimedSku, claimedSkuSum, compounds, featuredSlugs, getCompound, sectionCounts } from "@/lib/catalog";
+import { compounds, featuredSlugs, getCompound, sectionCounts } from "@/lib/catalog";
 import { sectionShort, text } from "@/lib/catalog/labels";
+import { monographs } from "@/lib/catalog/monographs";
 import { ArrowLeft, ArrowRight, Search } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -14,12 +15,8 @@ export function HomeView() {
   const [query, setQuery] = useState("");
   const counts = sectionCounts();
   const Arrow = lang === "fa" ? ArrowLeft : ArrowRight;
-  const sections = [
-    { id: "peptide" as const, claimed: claimedSku.peptide },
-    { id: "oral" as const, claimed: claimedSku.oral },
-    { id: "oil" as const, claimed: claimedSku.oil },
-    { id: "raw" as const, claimed: claimedSku.raw },
-  ];
+  const sections = ["peptide", "oral", "oil", "raw"] as const;
+  const monographCount = Object.keys(monographs).length;
 
   return (
     <div>
@@ -67,20 +64,17 @@ export function HomeView() {
         <p className="mt-2 max-w-3xl text-sm leading-7 text-slate-600 dark:text-slate-300">
           {tx(
             lang,
-            `عدد پررنگ، نام‌هایی است که در پپتیدیار ساخته شده. عدد کم‌رنگ، شمار قلم کالای همان فهرست تجاری است. جمع آن چهار قلم ${claimedSkuSum.toLocaleString("fa-IR")} است؛ رقم ۵۴۷ با این جمع نمی‌خواند و برای پرکردن فاصله ماده‌ای ساخته نشده.`,
-            `The bold number is how many names PeptideYar actually holds. The pale number is the trade list’s SKU count. Those four SKU counts add up to ${claimedSkuSum}; 547 does not match that sum, and nothing was invented to fill the gap.`,
+            "هر عدد، شمار نام‌هایی است که در همان دسته شناسنامه دارند. هر نام شیمیایی فقط یک بار آمده است.",
+            "Each number is how many names in that section have an entry. Each chemical name appears only once.",
           )}
         </p>
         <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {sections.map((item) => (
-            <li key={item.id}>
-              <Link href={`/catalog?section=${item.id}`} className="block h-full rounded-2xl border border-slate-200 bg-white p-4 hover:border-teal-500 dark:border-slate-800 dark:bg-slate-900">
-                <span className="mb-4 block h-1.5 w-12 rounded-full" style={{ background: sectionColor[item.id] }} />
-                <span className="text-3xl font-black">{lang === "fa" ? counts[item.id].toLocaleString("fa-IR") : counts[item.id]}</span>
-                <span className="mt-1 block font-bold">{text(lang, sectionShort[item.id])}</span>
-                <span className="mt-2 block text-xs text-slate-500">
-                  {tx(lang, "قلم در فهرست تجاری", "trade-list lines")}: {lang === "fa" ? item.claimed.toLocaleString("fa-IR") : item.claimed}
-                </span>
+          {sections.map((id) => (
+            <li key={id}>
+              <Link href={`/catalog?section=${id}`} className="block h-full rounded-2xl border border-slate-200 bg-white p-4 hover:border-teal-500 dark:border-slate-800 dark:bg-slate-900">
+                <span className="mb-4 block h-1.5 w-12 rounded-full" style={{ background: sectionColor[id] }} />
+                <span className="text-3xl font-black">{lang === "fa" ? counts[id].toLocaleString("fa-IR") : counts[id]}</span>
+                <span className="mt-1 block font-bold">{text(lang, sectionShort[id])}</span>
               </Link>
             </li>
           ))}
@@ -95,8 +89,8 @@ export function HomeView() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex items-end justify-between gap-4">
             <h2 className="text-2xl font-black">{tx(lang, "مونوگراف‌های بلند", "Long monographs")}</h2>
-            <Link href="/catalog" className="inline-flex items-center gap-1 text-sm font-bold text-teal-700 dark:text-teal-300">
-              {tx(lang, "همه", "All")}
+            <Link href="/catalog?full=1" className="inline-flex items-center gap-1 text-sm font-bold text-teal-700 dark:text-teal-300">
+              {tx(lang, `همهٔ ${monographCount.toLocaleString("fa-IR")} مونوگراف`, `All ${monographCount} monographs`)}
               <Arrow className="size-4" />
             </Link>
           </div>

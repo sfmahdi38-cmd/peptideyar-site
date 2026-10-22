@@ -95,16 +95,6 @@ export function sectionCounts(): Record<Section, number> {
   };
 }
 
-export const claimedSku = {
-  peptide: 179,
-  oral: 79,
-  oil: 67,
-  raw: 204,
-  statedTotal: 547,
-} as const;
-
-export const claimedSkuSum = claimedSku.peptide + claimedSku.oral + claimedSku.oil + claimedSku.raw;
-
 const sectionOrder: Section[] = ["peptide", "oral", "oil", "raw"];
 
 export function relatedCompounds(compound: Compound, limit = 4): Compound[] {

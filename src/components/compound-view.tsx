@@ -1,11 +1,11 @@
 "use client";
 
-import { tx, useLanguage } from "@/components/language";
+import { tx, useLanguage, type Lang } from "@/components/language";
 import { sectionColor, Vial } from "@/components/vial";
 import { getCompound, parentCompound, rawSibling, relatedCompounds } from "@/lib/catalog";
 import { flagLabel, flagNote, groupLabel, sectionLabel, text } from "@/lib/catalog/labels";
-import { monographs } from "@/lib/catalog/monographs";
-import { ArrowLeft, ArrowRight, Calculator, GitCompare } from "lucide-react";
+import { monographs, monographsReviewed } from "@/lib/catalog/monographs";
+import { ArrowLeft, ArrowRight, Calculator, ExternalLink, GitCompare } from "lucide-react";
 import Link from "next/link";
 
 export function CompoundView({ slug }: { slug: string }) {
@@ -53,11 +53,13 @@ export function CompoundView({ slug }: { slug: string }) {
           </p>
         </div>
         <div>
-          <h1 className="text-3xl font-black tracking-tight sm:text-5xl" dir="ltr">{compound.name}</h1>
+          <h1 className="text-3xl font-black tracking-tight sm:text-5xl">
+            <bdi dir="ltr">{compound.name}</bdi>
+          </h1>
           <p className="mt-2 text-lg text-slate-600 dark:text-slate-300">{compound.faName}</p>
           {compound.aliases.length > 0 ? (
-            <p className="mt-2 text-sm text-slate-500" dir="ltr">
-              {compound.aliases.join(" · ")}
+            <p className="mt-2 text-sm text-slate-500">
+              <bdi dir="ltr">{compound.aliases.join(" · ")}</bdi>
             </p>
           ) : null}
           {severe ? (
@@ -155,12 +157,38 @@ export function CompoundView({ slug }: { slug: string }) {
                     <p className="mt-1 text-xs text-slate-500" dir="ltr">{paper.journal} · {paper.year}</p>
                     <p className="mt-2 text-sm leading-7">{paper.finding[lang]}</p>
                     <p className="mt-1 text-xs text-slate-500">{paper.model[lang]}</p>
+                    <p className="mt-3 flex flex-wrap gap-2 text-xs font-bold">
+                      <a
+                        href={`https://pubmed.ncbi.nlm.nih.gov/${paper.pmid}/`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1 text-teal-700 hover:border-teal-500 dark:border-slate-700 dark:text-teal-300"
+                      >
+                        PubMed {paper.pmid}
+                        <ExternalLink className="size-3" />
+                      </a>
+                      <a
+                        href={`https://doi.org/${paper.doi}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1 text-teal-700 hover:border-teal-500 dark:border-slate-700 dark:text-teal-300"
+                      >
+                        DOI
+                        <ExternalLink className="size-3" />
+                      </a>
+                    </p>
                   </article>
                 ))}
               </div>
             </div>
           ) : null}
           <Spec title={tx(lang, "نگهداری نمونهٔ آزمایشگاهی", "Laboratory sample storage")} body={monograph.storage[lang]} />
+          {monograph.literature.length > 0 ? (
+            <p className="text-xs text-slate-500">
+              {tx(lang, "مقاله‌های این صفحه با PubMed تطبیق داده شده‌اند. آخرین بازبینی", "The papers on this page were checked against PubMed. Last reviewed")}:{" "}
+              <time dateTime={monographsReviewed}>{formatDate(monographsReviewed, lang)}</time>
+            </p>
+          ) : null}
         </section>
       ) : (
         <p className="mt-8 rounded-2xl bg-slate-50 p-4 text-sm leading-7 text-slate-600 dark:bg-slate-900 dark:text-slate-300">
@@ -179,7 +207,7 @@ export function CompoundView({ slug }: { slug: string }) {
             {related.map((item) => (
               <li key={item.slug}>
                 <Link href={`/catalog/${item.slug}`} className="block rounded-xl border border-slate-200 px-4 py-3 hover:border-teal-500 dark:border-slate-800">
-                  <span className="font-bold" dir="ltr">{item.name}</span>
+                  <bdi className="font-bold" dir="ltr">{item.name}</bdi>
                   <span className="mt-1 block text-sm text-slate-500">{item.faName}</span>
                 </Link>
               </li>
@@ -189,6 +217,10 @@ export function CompoundView({ slug }: { slug: string }) {
       ) : null}
     </article>
   );
+}
+
+function formatDate(iso: string, lang: Lang): string {
+  return new Intl.DateTimeFormat(lang === "fa" ? "fa-IR" : "en-GB", { dateStyle: "long", timeZone: "UTC" }).format(new Date(iso));
 }
 
 function Row({ label, value, ltr = true }: { label: string; value: string; ltr?: boolean }) {

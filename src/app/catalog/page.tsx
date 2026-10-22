@@ -1,4 +1,4 @@
-import { CatalogBrowser } from "@/components/catalog-browser";
+import { CatalogBrowser, CatalogBrowserView } from "@/components/catalog-browser";
 import { pageMetadata } from "@/lib/seo";
 import { Suspense } from "react";
 
@@ -10,7 +10,7 @@ export const metadata = pageMetadata({
 
 export default function CatalogPage() {
   return (
-    <Suspense fallback={<p className="px-4 py-16 text-center text-sm">…</p>}>
+    <Suspense fallback={<CatalogBrowserView />}>
       <CatalogBrowser />
     </Suspense>
   );

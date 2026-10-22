@@ -3,8 +3,9 @@
 import { tx, useLanguage } from "@/components/language";
 import { Input } from "@/components/ui/input";
 import { sectionColor } from "@/components/vial";
-import { claimedSku, groupsFor, searchCompounds, sectionCounts } from "@/lib/catalog";
+import { groupsFor, searchCompounds, sectionCounts } from "@/lib/catalog";
 import { flagLabel, groupLabel, sectionShort, text } from "@/lib/catalog/labels";
+import { monographs } from "@/lib/catalog/monographs";
 import type { Section } from "@/lib/catalog/types";
 import { cn } from "cn";
 import { Search, X } from "lucide-react";
@@ -15,26 +16,39 @@ import { useMemo, useState } from "react";
 const sections: Array<Section | "all"> = ["all", "peptide", "oral", "oil", "raw"];
 const PAGE = 24;
 
+const monographCount = Object.keys(monographs).length;
+
 export function CatalogBrowser() {
-  const { lang } = useLanguage();
   const params = useSearchParams();
+  return <CatalogBrowserView search={params.toString()} />;
+}
+
+/**
+ * The catalog UI for a given query string. The page prerenders this with an
+ * empty query as the Suspense fallback, so the static HTML carries the default
+ * list instead of a placeholder until useSearchParams resolves on the client.
+ */
+export function CatalogBrowserView({ search = "" }: { search?: string }) {
+  const { lang } = useLanguage();
+  const params = useMemo(() => new URLSearchParams(search), [search]);
   const router = useRouter();
   const section = (params.get("section") as Section | null) ?? "all";
   const group = params.get("group") ?? "all";
+  const fullOnly = params.get("full") === "1";
   const initialQuery = params.get("q") ?? "";
   const [query, setQuery] = useState(initialQuery);
   const [visible, setVisible] = useState(PAGE);
   const activeSection: Section | "all" = sections.includes(section) ? section : "all";
   const counts = sectionCounts();
 
-  const results = useMemo(
-    () => searchCompounds(query, activeSection, group),
-    [query, activeSection, group],
-  );
+  const results = useMemo(() => {
+    const found = searchCompounds(query, activeSection, group);
+    return fullOnly ? found.filter((item) => monographs[item.slug]) : found;
+  }, [query, activeSection, group, fullOnly]);
   const groups = groupsFor(activeSection).filter((item) => groupLabel[item]);
   const shown = results.slice(0, visible);
 
-  function push(next: { section?: Section | "all"; group?: string; q?: string }) {
+  function push(next: { section?: Section | "all"; group?: string; q?: string; full?: boolean }) {
     const search = new URLSearchParams(params.toString());
     const nextSection = next.section ?? activeSection;
     const nextGroup = next.group ?? group;
@@ -46,6 +60,10 @@ export function CatalogBrowser() {
     else search.set("section", nextSection);
     if (!nextGroup || nextGroup === "all") search.delete("group");
     else search.set("group", nextGroup);
+    if (next.full !== undefined) {
+      if (next.full) search.set("full", "1");
+      else search.delete("full");
+    }
     setVisible(PAGE);
     const queryString = search.toString();
     router.replace(queryString ? `/catalog?${queryString}` : "/catalog");
@@ -60,8 +78,8 @@ export function CatalogBrowser() {
       <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600 dark:text-slate-300">
         {tx(
           lang,
-          `فهرست تجاریِ مبدأ چهار عدد اعلام کرده است: ${claimedSku.peptide.toLocaleString("fa-IR")} پپتید، ${claimedSku.oral.toLocaleString("fa-IR")} قرص، ${claimedSku.oil.toLocaleString("fa-IR")} روغن و ${claimedSku.raw.toLocaleString("fa-IR")} مادهٔ خام. جمع این چهار عدد ${ (claimedSku.peptide + claimedSku.oral + claimedSku.oil + claimedSku.raw).toLocaleString("fa-IR") } است و با رقم ۵۴۷ یکی نیست. اینجا هر نام یک بار آمده، چون بسیاری از آن قلم‌ها فقط اندازهٔ ویال یا بسته‌اند. مادهٔ اعلام‌نشده ساخته نشده است.`,
-          `The source trade list claimed ${claimedSku.peptide} peptides, ${claimedSku.oral} tablets, ${claimedSku.oil} oils, and ${claimedSku.raw} raw materials. Those four figures add up to ${claimedSku.peptide + claimedSku.oral + claimedSku.oil + claimedSku.raw}, not 547. Each chemical name is indexed once, because many of those lines are only vial or pack sizes. Unnamed substances were not invented.`,
+          `هر نام شیمیایی یک بار آمده است، با شناسه، طبقه و پرچم وضعیت. ${monographCount.toLocaleString("fa-IR")} مدخل مونوگراف کامل دارند: توالی، مکانیسم و مقاله‌هایی که با PubMed تطبیق داده شده‌اند.`,
+          `Each chemical name appears once, with its identifiers, class, and status flags. ${monographCount} entries have a full monograph: sequence, mechanism, and papers checked against PubMed.`,
         )}
       </p>
 
@@ -123,6 +141,13 @@ export function CatalogBrowser() {
         })}
       </div>
 
+      <div className="mt-3">
+        <FilterChip active={fullOnly} onClick={() => push({ full: !fullOnly })}>
+          {tx(lang, "فقط مونوگراف کامل", "Full monographs only")}{" "}
+          <span className="opacity-80">{lang === "fa" ? monographCount.toLocaleString("fa-IR") : monographCount}</span>
+        </FilterChip>
+      </div>
+
       {activeSection !== "all" && groups.length > 1 ? (
         <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
           <FilterChip active={group === "all"} onClick={() => push({ group: "all" })}>
@@ -157,12 +182,19 @@ export function CatalogBrowser() {
               >
                 <span className="mb-3 h-1.5 w-16 rounded-full" style={{ background: sectionColor[item.section] }} />
                 <span className="text-xs font-bold text-slate-500">{text(lang, sectionShort[item.section])}</span>
-                <span className="mt-1 text-lg font-extrabold leading-6" dir="ltr">{item.name}</span>
+                <span className="mt-1 text-lg font-extrabold leading-6">
+                  <bdi dir="ltr">{item.name}</bdi>
+                </span>
                 <span className="mt-1 text-sm text-slate-500">{item.faName}</span>
                 <span className="mt-3 line-clamp-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
                   {item.summary[lang]}
                 </span>
                 <span className="mt-3 flex flex-wrap gap-1">
+                  {monographs[item.slug] ? (
+                    <span className="rounded-full bg-teal-100 px-2 py-0.5 text-[11px] font-semibold text-teal-800 dark:bg-teal-950 dark:text-teal-200">
+                      {tx(lang, "مونوگراف کامل", "Full monograph")}
+                    </span>
+                  ) : null}
                   {item.flags.slice(0, 3).map((flag) => (
                     <span key={flag} className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
                       {text(lang, flagLabel[flag])}

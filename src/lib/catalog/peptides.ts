@@ -940,9 +940,9 @@ export const peptides: CompoundInput[] = [
     aliases: ["Elamipretide", "Bendavia", "MTP-131"],
     group: "mitochondrial",
     cas: "736992-21-5",
-    flags: [...research],
-    fa: "پپتید هدف‌گیرندهٔ کاردیولیپین میتوکندری است که با نام الامیپرتاید در کارآزمایی‌های بیماری میتوکندریایی بررسی شده. ویال پژوهشی فراوردهٔ دارای پروانه را ثابت نمی‌کند.",
-    en: "A mitochondria-targeted cardiolipin-binding peptide studied as elamipretide in mitochondrial-disease trials. A research vial does not establish the authorised product.",
+    flags: [...research, "licensed-product"],
+    fa: "پپتید هدف‌گیرندهٔ کاردیولیپین میتوکندری است. با نام الامیپرتاید (Forzinity) در سال ۲۰۲۵ در آمریکا برای سندرم بارت مجوز سریع گرفت. ویال پژوهشی همان فراوردهٔ دارای پروانه نیست.",
+    en: "A mitochondria-targeted cardiolipin-binding peptide. As elamipretide (Forzinity) it received US accelerated approval for Barth syndrome in 2025. A research vial is not that authorised product.",
   }),
   entry("peptide", {
     slug: "survodutide",

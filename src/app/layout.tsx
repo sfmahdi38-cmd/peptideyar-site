@@ -3,6 +3,7 @@ import { JsonLd } from "@/components/json-ld";
 import { LanguageProvider } from "@/components/language";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { ogImage } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -25,6 +26,13 @@ export const metadata: Metadata = {
     title: `${site.nameFa} | دانشنامهٔ پژوهشی پپتید`,
     description,
     url: "/",
+    images: [ogImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.nameFa} | دانشنامهٔ پژوهشی پپتید`,
+    description,
+    images: [ogImage.url],
   },
   robots: { index: true, follow: true },
 };
