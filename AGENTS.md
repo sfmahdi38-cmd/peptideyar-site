@@ -15,3 +15,4 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Never add doses, dosing schedules, reconstitution steps, or sourcing routes. Report trial results without dose numbers.
 - Run `npm run lint` and `npm run build` before pushing.
 - Daily guides are Markdown files in `content/articles` (copy `_template.md`). `related` must list existing catalog slugs or the build fails. Write commercial-intent topics (for example "خرید پپتید") as honest buyer guidance; never imply PeptideYar sells anything.
+- Do not add `public/_redirects` rules that rewrite a path to its `.html` file (for example `/catalog /catalog.html 200`). Cloudflare already serves `/catalog` from `catalog.html`, and such a rewrite loops with its automatic `.html` redirect (308).
