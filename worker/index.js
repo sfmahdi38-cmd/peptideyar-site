@@ -14,6 +14,11 @@ export default {
       return env.ASSETS.fetch(new Request(next.toString(), request));
     };
 
+    if (path === "/") {
+      const index = await fetchAsset("/index.html");
+      if (index.ok || index.status === 304) return index;
+    }
+
     const last = path.split("/").pop() ?? "";
     if (path !== "/" && !last.includes(".")) {
       const html = await fetchAsset(`${path}.html`);
