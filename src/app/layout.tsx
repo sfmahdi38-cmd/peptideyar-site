@@ -1,18 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { DirectionProvider } from "@/components/ui/direction";
 import { JsonLd } from "@/components/json-ld";
+import { LanguageProvider } from "@/components/language";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/lib/site";
 import "./globals.css";
 
 const description =
-  "اشتراک IPTV برای بیننده فارسی‌زبان با شبکه‌های فارسی، فیلم و سریال از جمله آثار ایرانی، و دسته‌های کودک، ورزش و سرگرمی. خرید در تلگرام.";
+  "دانشنامهٔ آموزشی پپتیدیار: شناسنامهٔ پپتیدها، قرص‌ها، روغن‌های تزریقی و پودرهای خام. بدون فروش، بدون قیمت و بدون راهنمای مصرف انسانی.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.nameFa} | اشتراک IPTV برای بیننده فارسی‌زبان`,
+    default: `${site.nameFa} | دانشنامهٔ پژوهشی پپتید`,
     template: `%s | ${site.nameFa}`,
   },
   description,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: site.locale,
     siteName: site.nameFa,
-    title: `${site.nameFa} | اشتراک IPTV برای بیننده فارسی‌زبان`,
+    title: `${site.nameFa} | دانشنامهٔ پژوهشی پپتید`,
     description,
     url: "/",
   },
@@ -30,27 +30,27 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b1727",
+  themeColor: "#042f2e",
   colorScheme: "dark",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fa" dir="rtl" className="h-full antialiased">
-      <body className="flex min-h-svh flex-col">
+    <html lang="fa" dir="rtl" className="dark h-full antialiased" suppressHydrationWarning>
+      <body className="flex min-h-svh flex-col bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
         <a
           href="#content"
-          className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-primary focus:px-4 focus:py-3 focus:text-primary-foreground"
+          className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-teal-700 focus:px-4 focus:py-3 focus:text-white"
         >
           رفتن به محتوا
         </a>
-        <DirectionProvider direction="rtl">
+        <LanguageProvider>
           <SiteHeader />
           <main id="content" tabIndex={-1} className="flex-1 outline-none">
             {children}
           </main>
           <SiteFooter />
-        </DirectionProvider>
+        </LanguageProvider>
         <JsonLd />
       </body>
     </html>

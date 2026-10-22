@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
 
-type Path = "/" | "/channels" | "/buy" | "/faq" | "/about";
-
 export function pageMetadata({
   title,
   description,
@@ -10,11 +8,9 @@ export function pageMetadata({
 }: {
   title: string;
   description: string;
-  path: Path;
+  path: string;
 }): Metadata {
-  const documentTitle =
-    path === "/" ? `${site.nameFa} | اشتراک IPTV برای بیننده فارسی‌زبان` : `${title} | ${site.nameFa}`;
-
+  const documentTitle = path === "/" ? `${site.nameFa} | دانشنامهٔ پژوهشی پپتید` : title;
   return {
     title: path === "/" ? { absolute: documentTitle } : title,
     description,
@@ -26,12 +22,6 @@ export function pageMetadata({
       locale: site.locale,
       type: "website",
       siteName: site.nameFa,
-      images: [
-        {
-          url: "/images/iptvyar-promo.png",
-          alt: "پوستر معرفی آی‌پی‌تی‌وی یار",
-        },
-      ],
     },
   };
 }

@@ -10,15 +10,8 @@ export function JsonLd() {
         name: site.name,
         alternateName: site.nameFa,
         url: site.url,
-        inLanguage: "fa",
-        publisher: { "@id": `${site.url}/#organization` },
-      },
-      {
-        "@type": "Organization",
-        "@id": `${site.url}/#organization`,
-        name: site.name,
-        alternateName: site.nameFa,
-        url: site.url,
+        inLanguage: ["fa", "en"],
+        description: "Educational research encyclopedia of peptide, oral, oil, and bulk-powder names. No sales.",
       },
     ],
   };

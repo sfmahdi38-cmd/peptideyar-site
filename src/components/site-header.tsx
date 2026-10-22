@@ -1,104 +1,117 @@
 "use client";
 
+import { tx, useLanguage } from "@/components/language";
+import { cn } from "cn";
+import { Atom, BookOpen, Calculator, FlaskConical, GitCompare, Menu, Moon, ShieldAlert, Sun, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { nav, site } from "@/lib/site";
-import { cn } from "cn";
+import { useState } from "react";
+
+const links = [
+  { href: "/catalog", fa: "کاتالوگ", en: "Catalog", icon: FlaskConical },
+  { href: "/calculator", fa: "محاسبهٔ غلظت", en: "Concentration", icon: Calculator },
+  { href: "/compare", fa: "مقایسه", en: "Compare", icon: GitCompare },
+  { href: "/academy", fa: "آکادمی", en: "Academy", icon: BookOpen },
+  { href: "/safety", fa: "ایمنی", en: "Safety", icon: ShieldAlert },
+];
 
 export function SiteHeader() {
+  const { lang, setLang, dark, setDark } = useLanguage();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    if (!open) return;
-    function onKey(event: KeyboardEvent) {
-      if (event.key === "Escape") setOpen(false);
-    }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [open]);
-
   return (
-    <header className="sticky top-0 z-40 border-b border-cyan/25 bg-[#0b1727]/88 shadow-[0_12px_40px_rgb(0_0_0/0.28)] backdrop-blur-md">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-3">
-        <Link href="/" className="flex min-w-0 items-center gap-3 rounded-md">
-          <span
-            aria-hidden="true"
-            className="grid size-9 shrink-0 place-items-center rounded-md border border-cyan/50 bg-card"
-          >
-            <span className="h-0.5 w-3.5 rounded-full bg-peach" />
+    <div className="sticky top-0 z-40">
+      <div className="bg-teal-800 text-white">
+        <p className="mx-auto flex max-w-6xl items-start gap-2 px-4 py-2 text-xs leading-5 sm:items-center sm:text-sm">
+          <ShieldAlert className="mt-0.5 size-4 shrink-0 sm:mt-0" aria-hidden />
+          <span>
+            {tx(
+              lang,
+              "فقط برای آموزش و پژوهش آزمایشگاهی. مصرف انسانی نیست. این سایت فروش، قیمت و راهنمای مصرف ندارد.",
+              "Educational laboratory reference only. Not for human use. This site has no sales, prices, or instructions for use.",
+            )}
           </span>
-          <span className="min-w-0">
-            <span className="block truncate text-base font-medium">{site.nameFa}</span>
-            <span className="block text-xs text-muted-foreground" lang="en">
-              {site.name}
-            </span>
-          </span>
-        </Link>
-
-        <nav aria-label="اصلی" className="hidden lg:block">
-          <ul className="flex items-center gap-6">
-            {nav.map((item) => {
-              const active = pathname === item.href;
-              return (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    aria-current={active ? "page" : undefined}
-                    className={cn(
-                      "inline-flex min-h-11 items-center text-base",
-                      active
-                        ? "text-foreground underline decoration-peach decoration-2 underline-offset-8"
-                        : "text-muted-foreground hover:text-foreground",
-                    )}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-
-        <Button
-          type="button"
-          className="h-11 px-4 lg:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          onClick={() => setOpen((value) => !value)}
-        >
-          {open ? "بستن" : "منو"}
-        </Button>
+        </p>
       </div>
-
-      <nav
-        id="mobile-nav"
-        aria-label="موبایل"
-        className={cn("border-t border-border lg:hidden", !open && "hidden")}
-      >
-        <ul className="mx-auto flex w-full max-w-6xl flex-col px-3 py-2">
-          {nav.map((item) => {
-            const active = pathname === item.href;
-            return (
-              <li key={item.href}>
+      <header className="border-b border-slate-200/80 bg-white/90 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/90">
+        <div className="mx-auto flex h-16 max-w-6xl items-center gap-3 px-4">
+          <Link href="/" className="flex min-w-0 items-center gap-2.5" onClick={() => setOpen(false)}>
+            <span className="flex size-10 items-center justify-center rounded-xl bg-teal-600 text-white">
+              <Atom className="size-5" aria-hidden />
+            </span>
+            <span className="min-w-0">
+              <span className="block text-lg font-extrabold tracking-tight text-teal-700 dark:text-teal-300">
+                {tx(lang, "پپتیدیار", "PeptideYar")}
+              </span>
+              <span className="block truncate text-[11px] text-slate-500 dark:text-slate-400">
+                {tx(lang, "دانشنامهٔ پژوهشی، بدون فروش", "Research encyclopedia, no sales")}
+              </span>
+            </span>
+          </Link>
+          <nav className="ms-auto hidden items-center gap-1 lg:flex" aria-label={tx(lang, "اصلی", "Primary")}>
+            {links.map((item) => {
+              const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
+              const Icon = item.icon;
+              return (
                 <Link
+                  key={item.href}
                   href={item.href}
-                  aria-current={active ? "page" : undefined}
-                  onClick={() => setOpen(false)}
                   className={cn(
-                    "flex min-h-12 items-center rounded-md px-2 text-lg",
-                    active ? "text-foreground" : "text-muted-foreground",
+                    "inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-semibold",
+                    active
+                      ? "bg-teal-50 text-teal-800 dark:bg-teal-950 dark:text-teal-200"
+                      : "text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-900",
                   )}
                 >
-                  {item.label}
+                  <Icon className="size-4" aria-hidden />
+                  {tx(lang, item.fa, item.en)}
                 </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
-    </header>
+              );
+            })}
+          </nav>
+          <div className="ms-auto flex items-center gap-2 lg:ms-0">
+            <button
+              type="button"
+              className="rounded-xl border border-slate-200 px-3 py-2 text-xs font-bold text-teal-800 dark:border-slate-700 dark:text-teal-200"
+              onClick={() => setLang(lang === "fa" ? "en" : "fa")}
+            >
+              {lang === "fa" ? "EN" : "فا"}
+            </button>
+            <button
+              type="button"
+              className="rounded-xl border border-slate-200 p-2 text-slate-700 dark:border-slate-700 dark:text-amber-200"
+              onClick={() => setDark(!dark)}
+              aria-label={tx(lang, "تغییر زمینه", "Toggle theme")}
+            >
+              {dark ? <Sun className="size-4" /> : <Moon className="size-4" />}
+            </button>
+            <button
+              type="button"
+              className="rounded-xl border border-slate-200 p-2 lg:hidden dark:border-slate-700"
+              onClick={() => setOpen((value) => !value)}
+              aria-expanded={open}
+              aria-label={tx(lang, "منو", "Menu")}
+            >
+              {open ? <X className="size-4" /> : <Menu className="size-4" />}
+            </button>
+          </div>
+        </div>
+        {open ? (
+          <nav className="space-y-1 border-t border-slate-200 px-4 py-3 lg:hidden dark:border-slate-800" aria-label={tx(lang, "موبایل", "Mobile")}>
+            {links.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="block rounded-xl px-3 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-100 dark:text-slate-100 dark:hover:bg-slate-900"
+              >
+                {tx(lang, item.fa, item.en)}
+              </Link>
+            ))}
+          </nav>
+        ) : null}
+      </header>
+    </div>
   );
 }

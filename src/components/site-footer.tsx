@@ -1,37 +1,37 @@
+"use client";
+
+import { tx, useLanguage } from "@/components/language";
 import Link from "next/link";
-import { Container } from "@/components/container";
-import { nav, site } from "@/lib/site";
 
 export function SiteFooter() {
+  const { lang } = useLanguage();
   return (
-    <footer className="mt-auto border-t border-cyan/20 bg-[#0b1727]">
-      <Container className="grid gap-10 py-12 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
-        <div className="max-w-md">
-          <p className="text-lg font-medium">{site.nameFa}</p>
-          <p className="mt-3 leading-8 text-muted-foreground">
-            اشتراک IPTV برای بیننده فارسی‌زبان. خرید و فهرست جاری در تلگرام.
+    <footer className="mt-auto border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950">
+      <div className="mx-auto grid max-w-6xl gap-6 px-4 py-10 sm:grid-cols-[1.4fr_1fr]">
+        <div>
+          <h2 className="text-sm font-bold text-teal-800 dark:text-teal-300">
+            {tx(lang, "سلب مسئولیت", "Disclaimer")}
+          </h2>
+          <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-400">
+            {tx(
+              lang,
+              "پپتیدیار دانشنامهٔ آموزشی است و فروشنده، داروخانه یا مشاور درمان نیست. هیچ ماده‌ای در این فهرست برای مصرف انسانی توصیه نمی‌شود. بسیاری از نام‌ها در بریتانیا و اتحادیه اروپا داروی مجاز نیستند و برخی استروئیدهای آنابولیک داروی کنترل‌شده‌اند. اطلاعات اینجا تشخیص یا تجویز نیست.",
+              "PeptideYar is an educational encyclopedia. It is not a seller, a pharmacy, or a treatment adviser. Nothing in this index is recommended for human use. Many names are not authorised medicines in the UK or the EU, and some anabolic steroids are controlled drugs. This is not diagnosis or a prescription.",
+            )}
           </p>
         </div>
-        <nav aria-label="پاورقی">
-          <ul className="grid grid-cols-2 gap-3">
-            {nav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="inline-flex min-h-11 items-center text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+        <div className="text-sm leading-7">
+          <p className="font-bold text-slate-800 dark:text-slate-100">{tx(lang, "صفحه‌ها", "Pages")}</p>
+          <ul className="mt-2 space-y-1 text-slate-600 dark:text-slate-400">
+            <li><Link className="hover:text-teal-700" href="/catalog">{tx(lang, "کاتالوگ", "Catalog")}</Link></li>
+            <li><Link className="hover:text-teal-700" href="/safety">{tx(lang, "ایمنی و حدود کار", "Safety and limits")}</Link></li>
+            <li><Link className="hover:text-teal-700" href="/academy">{tx(lang, "آکادمی", "Academy")}</Link></li>
           </ul>
-        </nav>
-      </Container>
-      <Container className="pb-8">
-        <p className="text-sm text-muted-foreground" lang="en">
-          {site.domain}
-        </p>
-      </Container>
+        </div>
+      </div>
+      <p className="border-t border-slate-200 px-4 py-4 text-center text-xs text-slate-500 dark:border-slate-800">
+        © ۲۰۲۶ PeptideYar
+      </p>
     </footer>
   );
 }
