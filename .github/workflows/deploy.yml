@@ -1,0 +1,46 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+
+      - name: Deploy to the peptideyar Pages project
+        run: npx wrangler pages deploy out --project-name=peptideyar --branch=main --commit-hash="$GITHUB_SHA"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      # Fails the run if a key page errors or loops instead of loading.
+      - name: Check the live pages
+        run: |
+          sleep 30
+          status=0
+          for path in / /catalog /catalog/bpc-157 /articles /safety /sitemap.xml /google593823cc1406904b.html; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' -L --max-redirs 3 "https://peptideyar.pages.dev$path" || true)
+            echo "$path -> $code"
+            if [ "$code" != "200" ]; then status=1; fi
+          done
+          exit $status

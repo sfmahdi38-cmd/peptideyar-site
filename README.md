@@ -46,3 +46,9 @@ npm run build
 - اگر `related` به مدخلی اشاره کند که در کاتالوگ نیست، build خطا می‌دهد تا لینک خراب منتشر نشود.
 - راهنماها خودکار در صفحهٔ اصلی، `/articles`، نقشهٔ سایت، `/feed.xml` و `/llms.txt` می‌آیند.
 - هدف کلمه‌هایی مثل «خرید پپتید» صادقانه است: راهنمای خرید آگاهانه، نه ادعای فروش.
+
+## انتشار خودکار
+
+هر push روی `main` در GitHub Actions (`.github/workflows/deploy.yml`) این کارها را می‌کند: `npm ci`، lint و build، انتشار روی پروژهٔ Pages به نام `peptideyar`، و در آخر چک می‌کند صفحه‌های اصلی کد ۲۰۰ بدهند. اگر صفحه‌ای خطا بدهد یا در حلقهٔ ریدایرکت بیفتد، اجرا قرمز می‌شود.
+
+دو secret در تنظیمات مخزن لازم است: `CLOUDFLARE_API_TOKEN` (توکنی با دسترسی Cloudflare Pages: Edit) و `CLOUDFLARE_ACCOUNT_ID`. از صفحهٔ Actions هم می‌شود با «Run workflow» دستی منتشر کرد.
