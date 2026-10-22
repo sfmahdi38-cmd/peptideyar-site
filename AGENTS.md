@@ -7,3 +7,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## Content rules for PeptideYar
+
+- Monographs live in `src/lib/catalog/monographs.ts`, keyed by catalog slug.
+- Every paper needs a `pmid` and `doi` that were checked against PubMed. Copy titles and years from PubMed, never from memory.
+- Never add doses, dosing schedules, reconstitution steps, or sourcing routes. Report trial results without dose numbers.
+- Run `npm run lint` and `npm run build` before pushing.

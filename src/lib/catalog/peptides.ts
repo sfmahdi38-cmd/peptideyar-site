@@ -378,9 +378,9 @@ export const peptides: CompoundInput[] = [
     aliases: ["Pralmorelin", "growth hormone releasing peptide-2"],
     group: "somatotropic",
     cas: "158861-67-7",
-    flags: [...gh],
-    fa: "هگزاپپتید آگونیست گیرندهٔ گرلین است. نسبت به GHRP-6 کمتر اشتها را تحریک می‌کند اما همچنان می‌تواند کورتیزول و پرولاکتین را بالا ببرد. داروی مجاز رایج نیست.",
-    en: "A hexapeptide ghrelin-receptor agonist. It stimulates appetite less than GHRP-6 in comparative work, but it can still raise cortisol and prolactin. It is not a commonly authorised medicine.",
+    flags: [...gh, "licensed-product"],
+    fa: "هگزاپپتید آگونیست گیرندهٔ گرلین است. نسبت به GHRP-6 کمتر اشتها را تحریک می‌کند اما همچنان می‌تواند کورتیزول و پرولاکتین را بالا ببرد. در ژاپن فقط به‌عنوان آزمون تشخیصی کمبود هورمون رشد به کار می‌رود و داروی درمانی مجاز نیست.",
+    en: "A hexapeptide ghrelin-receptor agonist. It stimulates appetite less than GHRP-6 in comparative work, but it can still raise cortisol and prolactin. In Japan it is used only as a diagnostic test for growth-hormone deficiency, not as an authorised treatment.",
   }),
   entry("peptide", {
     slug: "ghrp-6",
@@ -442,7 +442,7 @@ export const peptides: CompoundInput[] = [
   entry("peptide", {
     slug: "hexarelin",
     name: "Hexarelin",
-    faName: "هگزاکلین",
+    faName: "هگزارلین",
     aliases: ["Examorelin", "GHS hexapeptide"],
     group: "somatotropic",
     cas: "140703-51-1",

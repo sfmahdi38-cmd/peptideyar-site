@@ -1024,4 +1024,635 @@ export const monographs: Record<string, Monograph> = {
     ],
     storage,
   },
+  sermorelin: {
+    sequence: ["Tyr", "Ala", "Asp", "Ala", "Ile", "Phe", "Thr", "Asn", "Ser", "Tyr", "Arg", "Lys", "Val", "Leu", "Gly", "Gln", "Leu", "Ser", "Ala", "Arg", "Lys", "Leu", "Leu", "Gln", "Asp", "Ile", "Met", "Ser", "Arg-NH2"],
+    sequenceNote: {
+      fa: "۲۹ ریشهٔ اول GHRH انسان با انتهای C آمیدی؛ کوتاه‌ترین پپتید مصنوعی که فعالیت کامل GHRH را دارد.",
+      en: "The first 29 residues of human GHRH with an amidated C-terminus; the shortest synthetic peptide with full GHRH activity.",
+    },
+    halfLife: {
+      fa: "در پلاسما چند دقیقه است. در کاربرد تشخیصی، پاسخ هورمون رشد کمی پس از تزریق وریدی سنجیده می‌شد.",
+      en: "Minutes in plasma. In diagnostic use, the growth-hormone response was measured shortly after an intravenous injection.",
+    },
+    receptors: {
+      fa: "گیرندهٔ GHRH روی هیپوفیز قدامی.",
+      en: "The GHRH receptor on the anterior pituitary.",
+    },
+    mechanism: {
+      fa: "مثل GHRH طبیعی، گیرندهٔ GHRH را فعال می‌کند و ترشح هورمون رشد را به‌طور اختصاصی از هیپوفیز قدامی بالا می‌برد. چون فقط به هیپوفیز سالم نیاز دارد، پاسخ طبیعی به آن کمبود هورمون رشدِ ناشی از نقص هیپوتالاموس را رد نمی‌کند.",
+      en: "Like native GHRH, it activates the GHRH receptor and specifically raises growth-hormone release from the anterior pituitary. Because it only needs a working pituitary, a normal response does not rule out growth-hormone deficiency caused by a hypothalamic defect.",
+    },
+    studies: [
+      {
+        fa: "آزمون تشخیصی: پاسخ هورمون رشد پس از تزریق وریدی، آزمونی سریع و نسبتاً اختصاصی برای کمبود هورمون رشد کودکان بود.",
+        en: "Diagnostic test: the growth-hormone response after an intravenous injection was a quick, fairly specific test for growth-hormone deficiency in children.",
+      },
+      {
+        fa: "درمان: در برخی کودکان پیش از بلوغ با کمبود ایدیوپاتیک، سرعت رشد قد بالا رفت، ولی کمتر از هورمون رشد تزریقی.",
+        en: "Treatment: height velocity rose in some prepubertal children with idiopathic deficiency, but less than with injected growth hormone.",
+      },
+      {
+        fa: "شایع‌ترین عارضه‌ها گرگرفتگی گذرای صورت و درد محل تزریق بود.",
+        en: "The commonest side effects were transient facial flushing and injection-site pain.",
+      },
+    ],
+    literature: [
+      {
+        title: "Sermorelin: a review of its use in the diagnosis and treatment of children with idiopathic growth hormone deficiency",
+        journal: "BioDrugs",
+        year: "1999",
+        pmid: "18031173",
+        doi: "10.2165/00063030-199912020-00007",
+        model: { fa: "مرور مطالعات بالینی کودکان", en: "Review of paediatric clinical studies" },
+        finding: {
+          fa: "سرمورلین برای آزمون تشخیصی مناسب بود و در برخی کودکان رشد را بهتر کرد؛ اثرش با هورمون رشد مستقیم مقایسه نشده بود.",
+          en: "Sermorelin suited diagnostic testing and improved growth in some children; it had not been compared head to head with growth hormone.",
+        },
+      },
+    ],
+    storage,
+  },
+  "ghrp-6": {
+    sequence: ["His", "D-Trp", "Ala", "Trp", "D-Phe", "Lys-NH2"],
+    sequenceNote: {
+      fa: "هگزاپپتید با دو اسید آمینهٔ D. از نخستین سکرتاگوگ‌های مصنوعی هورمون رشد، سال‌ها پیش از کشف گرلین.",
+      en: "A hexapeptide with two D-amino acids. One of the first synthetic growth-hormone secretagogues, years before ghrelin was discovered.",
+    },
+    halfLife: {
+      fa: "نیمه‌عمر انسانیِ دارای پروانه ندارد. در موش، هورمون رشد ۲ دقیقه پس از تزریق وریدی بالا رفت، در ۱۰ تا ۲۰ دقیقه به اوج رسید و تا ۲ ساعت به پایه برگشت.",
+      en: "There is no authorised human half-life. In rats, growth hormone rose 2 minutes after intravenous injection, peaked at 10–20 minutes, and was back to baseline by 2 hours.",
+    },
+    receptors: {
+      fa: "گیرندهٔ GHS-R1a در هیپوفیز و هیپوتالاموس، همان گیرنده‌ای که بعدها معلوم شد لیگاند طبیعی‌اش گرلین است.",
+      en: "GHS-R1a in the pituitary and hypothalamus, the receptor later shown to have ghrelin as its natural ligand.",
+    },
+    mechanism: {
+      fa: "مقالهٔ ۱۹۸۴ در موش ترشح اختصاصی هورمون رشد را گزارش کرد. کارهای بعدی نشان داد GHRP-6 و GHRP-2 ACTH و کورتیزول را هم بالا می‌برند. افزایش اشتها هم اثر شناخته‌شدهٔ فعال شدن گیرندهٔ گرلین است.",
+      en: "The 1984 paper reported specific growth-hormone release in rats. Later work showed that GHRP-6 and GHRP-2 also raise ACTH and cortisol. Increased appetite is a known effect of activating the ghrelin receptor.",
+    },
+    studies: [
+      {
+        fa: "موش، میمون، بره و گوساله: ترشح هورمون رشد وابسته به دوز در همهٔ گونه‌ها.",
+        en: "Rats, monkeys, lambs, and calves: dose-related growth-hormone release in every species.",
+      },
+      {
+        fa: "مقایسه در خوک: برخلاف ایپامورلین، GHRP-6 سطح ACTH و کورتیزول را بالا برد.",
+        en: "Comparison in pigs: unlike ipamorelin, GHRP-6 raised ACTH and cortisol.",
+      },
+    ],
+    literature: [
+      {
+        title: "On the in vitro and in vivo activity of a new synthetic hexapeptide that acts on the pituitary to specifically release growth hormone",
+        journal: "Endocrinology",
+        year: "1984",
+        pmid: "6714155",
+        doi: "10.1210/endo-114-5-1537",
+        model: { fa: "کشت هیپوفیز و چند گونهٔ جانوری", en: "Pituitary culture and several animal species" },
+        finding: {
+          fa: "هگزاپپتید جدید در کشت و در جانور، هورمون رشد را به‌صورت وابسته به دوز آزاد کرد.",
+          en: "The new hexapeptide released growth hormone in a dose-related way in culture and in animals.",
+        },
+      },
+      {
+        title: "Ipamorelin, the first selective growth hormone secretagogue",
+        journal: "European Journal of Endocrinology",
+        year: "1998",
+        pmid: "9849822",
+        doi: "10.1530/eje.0.1390552",
+        model: { fa: "مقایسه در خوک", en: "Comparison in pigs" },
+        finding: {
+          fa: "GHRP-6 و GHRP-2 برخلاف ایپامورلین ACTH و کورتیزول را بالا بردند.",
+          en: "Unlike ipamorelin, GHRP-6 and GHRP-2 raised ACTH and cortisol.",
+        },
+      },
+    ],
+    storage,
+  },
+  "ghrp-2": {
+    sequence: ["D-Ala", "D-2-Nal", "Ala", "Trp", "D-Phe", "Lys-NH2"],
+    sequenceNote: {
+      fa: "D-2-Nal یعنی D-β-نفتیل‌آلانین. نام دارویی آن پرالمورلین است.",
+      en: "D-2-Nal is D-β-naphthylalanine. Its drug name is pralmorelin.",
+    },
+    halfLife: {
+      fa: "نیمه‌عمر انسانیِ دارای پروانه در اینجا نیامده است. خود پپتید و متابولیت سه‌ریشه‌ای‌اش پس از تزریق وریدی در ادرار قابل ردیابی‌اند و آزمایشگاه‌های ضددوپینگ همین را جست‌وجو می‌کنند.",
+      en: "No authorised human half-life is given here. The peptide and its three-residue metabolite can be traced in urine after intravenous injection, and anti-doping laboratories look for exactly that.",
+    },
+    receptors: {
+      fa: "گیرندهٔ گرلین (GHS-R1a).",
+      en: "The ghrelin receptor (GHS-R1a).",
+    },
+    mechanism: {
+      fa: "مثل GHRP-6 گیرندهٔ گرلین را فعال می‌کند. در ژاپن، آزمون تزریق وریدی GHRP-2 برای تشخیص کمبود شدید هورمون رشد در بزرگسالان به کار می‌رود.",
+      en: "Like GHRP-6, it activates the ghrelin receptor. In Japan, an intravenous GHRP-2 test is used to diagnose severe adult growth-hormone deficiency.",
+    },
+    studies: [
+      {
+        fa: "ژاپن: آزمون GHRP-2 جایگزین ساده‌تر و ایمن‌تر آزمون تحمل انسولین برای تشخیص کمبود هورمون رشد بزرگسالان معرفی شده است.",
+        en: "Japan: the GHRP-2 test is offered as a simpler, safer alternative to the insulin tolerance test for adult growth-hormone deficiency.",
+      },
+      {
+        fa: "در فهرست ممنوعهٔ WADA است و روش آزمایش ادرار برای کشف آن طراحی شده است.",
+        en: "It is on the WADA prohibited list, and a urine test was designed to detect it.",
+      },
+      {
+        fa: "در خوک، ACTH و کورتیزول را بالا برد.",
+        en: "In pigs it raised ACTH and cortisol.",
+      },
+    ],
+    literature: [
+      {
+        title: "Adult growth hormone deficiency: current concepts",
+        journal: "Neurologia medico-chirurgica",
+        year: "2014",
+        pmid: "25070016",
+        doi: "10.2176/nmc.ra.2014-0088",
+        model: { fa: "مرور بالینی", en: "Clinical review" },
+        finding: {
+          fa: "آزمون GHRP-2 در ژاپن برای تشخیص کمبود شدید هورمون رشد بزرگسالان در دسترس و توصیه‌شده است.",
+          en: "The GHRP-2 test is available and recommended in Japan for diagnosing severe adult growth-hormone deficiency.",
+        },
+      },
+      {
+        title: "Determination of growth hormone secretagogue pralmorelin (GHRP-2) and its metabolite in human urine by liquid chromatography/electrospray ionization tandem mass spectrometry",
+        journal: "Rapid Communications in Mass Spectrometry",
+        year: "2010",
+        pmid: "20552695",
+        doi: "10.1002/rcm.4619",
+        model: { fa: "ده داوطلب مرد، آزمایش ضددوپینگ", en: "Ten male volunteers, anti-doping assay" },
+        finding: {
+          fa: "GHRP-2 و متابولیت اختصاصی‌اش در ادرار هر ده نفر پیدا شد.",
+          en: "GHRP-2 and its specific metabolite were found in the urine of all ten volunteers.",
+        },
+      },
+    ],
+    storage,
+  },
+  hexarelin: {
+    sequence: ["His", "D-2-Me-Trp", "Ala", "Trp", "D-Phe", "Lys-NH2"],
+    sequenceNote: {
+      fa: "اسکلت GHRP-6 با D-2-متیل-تریپتوفان در جایگاه ۲.",
+      en: "The GHRP-6 scaffold with D-2-methyl-tryptophan at position 2.",
+    },
+    halfLife: {
+      fa: "نیمه‌عمر انسانیِ دارای پروانه ندارد. زیست‌دسترس‌پذیری زیرجلدی حدود ۷۷٪ و خوراکی کمتر از ۱٪ گزارش شد.",
+      en: "There is no authorised human half-life. Subcutaneous bioavailability was reported at about 77% and oral at under 1%.",
+    },
+    receptors: {
+      fa: "گیرندهٔ گرلین (GHS-R1a).",
+      en: "The ghrelin receptor (GHS-R1a).",
+    },
+    mechanism: {
+      fa: "در انسان، تزریق وریدی هگزارلین تقریباً دو برابر GHRH هورمون رشد آزاد کرد. پاسخ در سالمندان کمتر از جوانان بود.",
+      en: "In people, intravenous hexarelin released about twice as much growth hormone as GHRH. The response was smaller in older than in young adults.",
+    },
+    studies: [
+      {
+        fa: "۱۲ داوطلب جوان: پاسخ هورمون رشد وابسته به دوز بود و از راه وریدی، زیرجلدی، بینی و خوراکی دیده شد.",
+        en: "12 young volunteers: the growth-hormone response was dose-related and seen by intravenous, subcutaneous, nasal, and oral routes.",
+      },
+      {
+        fa: "سالمندان: پاسخ کمتر از جوانان بود و آرژنین آن را فقط در سالمندان تقویت کرد.",
+        en: "Older adults: the response was smaller than in young adults, and arginine boosted it only in the older group.",
+      },
+    ],
+    literature: [
+      {
+        title: "Growth hormone-releasing activity of hexarelin, a new synthetic hexapeptide, after intravenous, subcutaneous, intranasal, and oral administration in man",
+        journal: "Journal of Clinical Endocrinology & Metabolism",
+        year: "1994",
+        pmid: "8126144",
+        doi: "10.1210/jcem.78.3.8126144",
+        model: { fa: "۱۲ داوطلب سالم", en: "12 healthy volunteers" },
+        finding: {
+          fa: "پاسخ هورمون رشد به هگزارلین وریدی حدود دو برابر GHRH و تکرارپذیر بود.",
+          en: "The growth-hormone response to intravenous hexarelin was about twice that to GHRH and reproducible.",
+        },
+      },
+      {
+        title: "Arginine and growth hormone-releasing hormone restore the blunted growth hormone-releasing activity of hexarelin in elderly subjects",
+        journal: "Journal of Clinical Endocrinology & Metabolism",
+        year: "1994",
+        pmid: "7962341",
+        doi: "10.1210/jcem.79.5.7962341",
+        model: { fa: "مردان جوان و سالمند", en: "Young and older men" },
+        finding: {
+          fa: "اثر هگزارلین به سن وابسته بود و در سالمندان کمتر بود.",
+          en: "Hexarelin’s effect depended on age and was smaller in older men.",
+        },
+      },
+    ],
+    storage,
+  },
+  dsip: {
+    sequence: ["Trp", "Ala", "Gly", "Gly", "Asp", "Ala", "Ser", "Gly", "Glu"],
+    sequenceNote: {
+      fa: "نُه ریشه که نخستین بار از خرگوش جدا شد.",
+      en: "Nine residues, first isolated from rabbits.",
+    },
+    halfLife: {
+      fa: "دادهٔ دارویی انسانیِ قابل اتکا ندارد.",
+      en: "There are no reliable human pharmacological data.",
+    },
+    receptors: {
+      fa: "گیرندهٔ اختصاصیِ شناخته‌شده‌ای برایش پیدا نشده است.",
+      en: "No specific receptor has been identified.",
+    },
+    mechanism: {
+      fa: "تزریق مستقیم DSIP به بطن مغز خرگوش، امواج دلتا و دوک‌های خواب را در نوار مغزی بیشتر کرد. ژن سازنده و گیرنده‌اش هنوز روشن نیست و نقش آن در خواب طبیعی انسان ثابت نشده است.",
+      en: "Infusing DSIP straight into the brain ventricles of rabbits increased delta waves and sleep spindles on the EEG. Its gene and receptor are still unclear, and a role in normal human sleep has not been shown.",
+    },
+    studies: [
+      {
+        fa: "۵۸ خرگوش، تزریق داخل بطنی دوسوکور: فقط DSIP سنتتیک امواج دلتا را به‌طور اختصاصی بیشتر کرد، نه قطعه‌ها و آنالوگ‌هایش.",
+        en: "58 rabbits, double-blind intraventricular infusion: only synthetic DSIP specifically increased delta activity, not its fragments or analogues.",
+      },
+      {
+        fa: "مطالعات انسانی کوچک و ناهمگون‌اند و اثر پایدار بر خواب نشان نداده‌اند.",
+        en: "Human studies are small and inconsistent and have not shown a reliable effect on sleep.",
+      },
+    ],
+    literature: [
+      {
+        title: "Characterization of a delta-electroencephalogram (-sleep)-inducing peptide",
+        journal: "Proceedings of the National Academy of Sciences",
+        year: "1977",
+        pmid: "265572",
+        doi: "10.1073/pnas.74.3.1282",
+        model: { fa: "تزریق داخل بطنی در خرگوش", en: "Intraventricular infusion in rabbits" },
+        finding: {
+          fa: "توالی نُه‌ریشه‌ای تعیین شد و نسخهٔ سنتتیک امواج دلتای نوار مغزی را القا کرد.",
+          en: "The nine-residue sequence was determined, and the synthetic peptide induced delta EEG activity.",
+        },
+      },
+    ],
+    storage,
+  },
+  "ll-37": {
+    sequence: ["Leu", "Leu", "Gly", "Asp", "Phe", "Phe", "Arg", "Lys", "Ser", "Lys", "Glu", "Lys", "Ile", "Gly", "Lys", "Glu", "Phe", "Lys", "Arg", "Ile", "Val", "Gln", "Arg", "Ile", "Lys", "Asp", "Phe", "Leu", "Arg", "Asn", "Leu", "Val", "Pro", "Arg", "Thr", "Glu", "Ser"],
+    sequenceNote: {
+      fa: "۳۷ ریشه که با دو لوسین شروع می‌شود (نام LL-37 از همین‌جاست). از پیش‌سازی به نام hCAP18 بریده می‌شود.",
+      en: "37 residues starting with two leucines, hence the name LL-37. It is cut from a precursor called hCAP18.",
+    },
+    halfLife: {
+      fa: "پپتید درونی بدن است که در نوتروفیل‌ها ذخیره و هنگام التهاب آزاد می‌شود. دادهٔ فارماکوکینتیک دارویی ندارد.",
+      en: "An endogenous peptide stored in neutrophils and released during inflammation. There are no drug pharmacokinetic data.",
+    },
+    receptors: {
+      fa: "بیشتر با برهم‌کنش مستقیم با غشای باکتری کار می‌کند. روی سلول‌های انسان هم گیرنده‌هایی مثل FPR2 مطرح شده‌اند.",
+      en: "It works mostly by direct interaction with bacterial membranes. Receptors such as FPR2 on human cells have also been proposed.",
+    },
+    mechanism: {
+      fa: "LL-37 پپتید کاتیونی و مارپیچی است که غشای باکتری را برهم می‌زند. ژن آن (CAMP، پیش‌تر FALL39) تنها عضو خانوادهٔ کاتلیسیدین در ژنوم انسان است. در کنار اثر ضدمیکروبی، در التهاب و ترمیم زخم هم نقش دارد.",
+      en: "LL-37 is a cationic, helical peptide that disrupts bacterial membranes. Its gene (CAMP, formerly FALL39) is the only cathelicidin in the human genome. Besides killing microbes, it takes part in inflammation and wound repair.",
+    },
+    studies: [
+      {
+        fa: "گرانولوسیت انسان: پپتید بالغ LL-37 جدا شد و اثر ضدباکتری قوی داشت.",
+        en: "Human granulocytes: mature LL-37 was isolated and was strongly antibacterial.",
+      },
+      {
+        fa: "در زخم پوستی مطالعات بالینی کوچک انجام شده، ولی فراوردهٔ دارویی مجاز ندارد.",
+        en: "Small clinical studies have been run in skin ulcers, but there is no authorised medicine.",
+      },
+    ],
+    literature: [
+      {
+        title: "The human gene FALL39 and processing of the cathelin precursor to the antibacterial peptide LL-37 in granulocytes",
+        journal: "European Journal of Biochemistry",
+        year: "1996",
+        pmid: "8681941",
+        doi: "10.1111/j.1432-1033.1996.0325z.x",
+        model: { fa: "ژن انسانی و گرانولوسیت", en: "Human gene and granulocytes" },
+        finding: {
+          fa: "ژن FALL39 توالی‌یابی شد، تنها کاتلیسیدین انسانی معرفی شد و LL-37 بالغ از گرانولوسیت جدا شد.",
+          en: "The FALL39 gene was sequenced, shown to be the only human cathelicidin, and mature LL-37 was isolated from granulocytes.",
+        },
+      },
+    ],
+    storage,
+  },
+  liraglutide: {
+    sequence: ["His", "Ala", "Glu", "Gly", "Thr", "Phe", "Thr", "Ser", "Asp", "Val", "Ser", "Ser", "Tyr", "Leu", "Glu", "Gly", "Gln", "Ala", "Ala", "Lys(C16)", "Glu", "Phe", "Ile", "Ala", "Trp", "Leu", "Val", "Arg", "Gly", "Arg", "Gly"],
+    sequenceNote: {
+      fa: "۳۱ ریشه، ۹۷٪ هم‌سان با GLP-1(7-37) انسان: Arg به جای Lys در جایگاه ۲۸ و یک اسید پالمیتیک (C16) با رابط گلوتامیک روی لیزین جایگاه ۲۰.",
+      en: "31 residues, 97% identical to human GLP-1(7-37): Arg replaces Lys at position 28, and a palmitic acid (C16) on a glutamic linker sits on the lysine at position 20.",
+    },
+    halfLife: {
+      fa: "حدود ۱۳ ساعت؛ به همین دلیل قلم مجاز آن روزانه است.",
+      en: "About 13 hours, which is why the licensed pen is daily.",
+    },
+    receptors: {
+      fa: "گیرندهٔ GLP-1 (GLP-1R).",
+      en: "The GLP-1 receptor (GLP-1R).",
+    },
+    mechanism: {
+      fa: "مثل سماگلوتاید گیرندهٔ GLP-1 را فعال می‌کند. Aib ندارد و زنجیرهٔ چربش کوتاه‌تر است، پس اثرش کوتاه‌تر است. اسید چرب باعث اتصال به آلبومین و کند شدن جذب از زیر پوست می‌شود.",
+      en: "Like semaglutide, it activates the GLP-1 receptor. It has no Aib and a shorter fatty chain, so it acts for less time. The fatty acid makes it bind albumin and slows absorption from under the skin.",
+    },
+    studies: [
+      {
+        fa: "SCALE (۳۷۳۱ بزرگسال بدون دیابت، ۵۶ هفته): میانگین کاهش وزن ۸٫۴ کیلوگرم در برابر ۲٫۸ کیلوگرم با دارونما.",
+        en: "SCALE (3,731 adults without diabetes, 56 weeks): mean weight loss 8.4 kg versus 2.8 kg with placebo.",
+      },
+      {
+        fa: "LEADER (۹۳۴۰ بیمار دیابت نوع ۲ پرخطر، میانهٔ ۳٫۸ سال): رویداد قلبی‌عروقی اصلی ۱۳٪ در برابر ۱۴٫۹٪، و مرگ قلبی ۴٫۷٪ در برابر ۶٪.",
+        en: "LEADER (9,340 high-risk type 2 diabetes patients, median 3.8 years): major cardiovascular events 13% versus 14.9%, and cardiovascular death 4.7% versus 6%.",
+      },
+      {
+        fa: "شایع‌ترین عارضه‌ها تهوع و اسهال بودند.",
+        en: "The commonest side effects were nausea and diarrhoea.",
+      },
+    ],
+    literature: [
+      {
+        title: "A Randomized, Controlled Trial of 3.0 mg of Liraglutide in Weight Management",
+        journal: "New England Journal of Medicine",
+        year: "2015",
+        pmid: "26132939",
+        doi: "10.1056/NEJMoa1411892",
+        model: { fa: "کارآزمایی تصادفی دوسوکور، ۵۶ هفته", en: "Randomised double-blind trial, 56 weeks" },
+        finding: {
+          fa: "کاهش وزن و بهبود کنترل متابولیک نسبت به دارونما.",
+          en: "Weight loss and better metabolic control than placebo.",
+        },
+      },
+      {
+        title: "Liraglutide and Cardiovascular Outcomes in Type 2 Diabetes",
+        journal: "New England Journal of Medicine",
+        year: "2016",
+        pmid: "27295427",
+        doi: "10.1056/NEJMoa1603827",
+        model: { fa: "کارآزمایی پیامد قلبی‌عروقی", en: "Cardiovascular outcomes trial" },
+        finding: {
+          fa: "رویداد قلبی‌عروقی اصلی کمتر بود (نسبت خطر ۰٫۸۷).",
+          en: "Major cardiovascular events were lower (hazard ratio 0.87).",
+        },
+      },
+    ],
+    storage: licensedStorage,
+  },
+  oxytocin: {
+    sequence: ["Cys", "Tyr", "Ile", "Gln", "Asn", "Cys", "Pro", "Leu", "Gly-NH2"],
+    sequenceNote: {
+      fa: "نُه ریشه با پل دی‌سولفید بین سیستئین ۱ و ۶ و انتهای C آمیدی. با وازوپرسین فقط در جایگاه ۳ و ۸ فرق دارد.",
+      en: "Nine residues with a disulfide bridge between Cys 1 and Cys 6 and an amidated C-terminus. It differs from vasopressin only at positions 3 and 8.",
+    },
+    halfLife: {
+      fa: "نیمه‌عمر پلاسمایی چند دقیقه است.",
+      en: "Plasma half-life is a few minutes.",
+    },
+    receptors: {
+      fa: "گیرندهٔ اکسی‌توسین (OXTR)، جفت‌شده با پروتئین G، در رحم، پستان و مغز.",
+      en: "The oxytocin receptor (OXTR), a G-protein-coupled receptor in the uterus, breast, and brain.",
+    },
+    mechanism: {
+      fa: "اکسی‌توسین انقباض رحم و جاری شدن شیر را تحریک می‌کند. در مغز در رفتار اجتماعی و پیوند نقش دارد و همین باعث شد اکسی‌توسین بینی برای اوتیسم آزمایش شود.",
+      en: "Oxytocin triggers uterine contraction and milk let-down. In the brain it takes part in social behaviour and bonding, which is why intranasal oxytocin was tested in autism.",
+    },
+    studies: [
+      {
+        fa: "کارآزمایی ۲۴ هفته‌ای ۲۹۰ کودک و نوجوان مبتلا به اوتیسم: اکسی‌توسین بینی در رفتار اجتماعی یا شناختی تفاوتی با دارونما نداشت.",
+        en: "24-week trial in 290 children and adolescents with autism: intranasal oxytocin did not differ from placebo on social or cognitive measures.",
+      },
+      {
+        fa: "کاربرد مجاز آن بیمارستانی و زیر نظر تیم زایمان است.",
+        en: "Its authorised use is in hospital, under an obstetric team.",
+      },
+    ],
+    literature: [
+      {
+        title: "Intranasal Oxytocin in Children and Adolescents with Autism Spectrum Disorder",
+        journal: "New England Journal of Medicine",
+        year: "2021",
+        pmid: "34644471",
+        doi: "10.1056/NEJMoa2103583",
+        model: { fa: "کارآزمایی فاز ۲ تصادفی با دارونما", en: "Placebo-controlled randomised phase 2 trial" },
+        finding: {
+          fa: "تفاوت معناداری در کناره‌گیری اجتماعی یا سایر پیامدها دیده نشد.",
+          en: "No significant difference in social withdrawal or other outcomes.",
+        },
+      },
+    ],
+    storage: licensedStorage,
+  },
+  humanin: {
+    sequence: ["Met", "Ala", "Pro", "Arg", "Gly", "Phe", "Ser", "Cys", "Leu", "Leu", "Leu", "Leu", "Thr", "Ser", "Glu", "Ile", "Asp", "Leu", "Pro", "Val", "Lys", "Arg", "Arg", "Ala"],
+    sequenceNote: {
+      fa: "۲۴ ریشه که چارچوب خوانش کوتاهی در ژن 16S rRNA میتوکندری آن را رمز می‌کند.",
+      en: "24 residues encoded by a short open reading frame in the mitochondrial 16S rRNA gene.",
+    },
+    halfLife: {
+      fa: "دادهٔ فارماکوکینتیک انسانی ندارد.",
+      en: "There are no human pharmacokinetic data.",
+    },
+    receptors: {
+      fa: "گیرنده‌هایی مثل FPRL1 و یک کمپلکس سه‌جزئی مرتبط با gp130 در پژوهش‌ها مطرح شده‌اند.",
+      en: "Receptors such as FPRL1 and a gp130-related three-part complex have been proposed.",
+    },
+    mechanism: {
+      fa: "هیومنین با غربالگری بیانی در سلول‌های عصبی کشف شد: مرگ نورون ناشی از ژن‌های جهش‌یافتهٔ آلزایمر خانوادگی و آمیلوئید بتا را در کشت سلول متوقف کرد. بعدها اثرهای متابولیک هم برایش گزارش شد. این‌ها یافته‌های آزمایشگاهی‌اند.",
+      en: "Humanin was found by expression screening in nerve cells: it stopped neuronal death caused by familial Alzheimer’s mutant genes and amyloid beta in culture. Metabolic effects were reported later. These are laboratory findings.",
+    },
+    studies: [
+      {
+        fa: "کشت سلول عصبی: محافظت در برابر مرگ ناشی از چند ژن آلزایمر خانوادگی و Aβ، ولی نه در برابر جهش‌های SOD1 یا Q79.",
+        en: "Nerve-cell culture: protection against death from several familial Alzheimer’s genes and Aβ, but not from SOD1 or Q79 mutants.",
+      },
+      {
+        fa: "کارآزمایی انسانیِ منتشرشده برای مجوز دارو وجود ندارد.",
+        en: "No published human trial supports a medicine licence.",
+      },
+    ],
+    literature: [
+      {
+        title: "A rescue factor abolishing neuronal cell death by a wide spectrum of familial Alzheimer's disease genes and Abeta",
+        journal: "Proceedings of the National Academy of Sciences",
+        year: "2001",
+        pmid: "11371646",
+        doi: "10.1073/pnas.101133498",
+        model: { fa: "کشت سلول عصبی", en: "Nerve-cell culture" },
+        finding: {
+          fa: "ژن هیومنین شناسایی شد و پپتید ترشح‌شده‌اش سلول‌های عصبی را از مرگ ناشی از ژن‌های آلزایمر نجات داد.",
+          en: "The humanin gene was identified, and its secreted peptide rescued nerve cells from death caused by Alzheimer’s genes.",
+        },
+      },
+    ],
+    storage,
+  },
+  cagrilintide: {
+    halfLife: {
+      fa: "طولانی‌اثر و برای تزریق هفتگی طراحی شده است.",
+      en: "Long-acting and designed for weekly injection.",
+    },
+    receptors: {
+      fa: "گیرنده‌های آمیلین و کلسی‌تونین.",
+      en: "Amylin and calcitonin receptors.",
+    },
+    mechanism: {
+      fa: "آمیلین هورمونی است که همراه انسولین از پانکراس ترشح می‌شود و احساس سیری می‌دهد. کاگریلینتاید آنالوگ طولانی‌اثر آن است و در ترکیب با سماگلوتاید (CagriSema) هم بررسی شده است.",
+      en: "Amylin is a hormone released from the pancreas with insulin, and it signals fullness. Cagrilintide is a long-acting analogue and has also been studied combined with semaglutide (CagriSema).",
+    },
+    studies: [
+      {
+        fa: "فاز ۲ (۲۶ هفته): کاهش وزن از ۶٪ تا ۱۰٫۸٪ بسته به سطح دوز، در برابر ۳٪ با دارونما. بالاترین سطح از لیراگلوتاید (۹٪) بیشتر بود.",
+        en: "Phase 2 (26 weeks): weight loss from 6% to 10.8% by dose level, versus 3% with placebo. The top level beat liraglutide (9%).",
+      },
+      {
+        fa: "عارضه‌های شایع گوارشی (تهوع، یبوست، اسهال) و واکنش محل تزریق بودند.",
+        en: "Common side effects were gastrointestinal (nausea, constipation, diarrhoea) and injection-site reactions.",
+      },
+    ],
+    literature: [
+      {
+        title: "Once-weekly cagrilintide for weight management in people with overweight and obesity: a multicentre, randomised, double-blind, placebo-controlled and active-controlled, dose-finding phase 2 trial",
+        journal: "The Lancet",
+        year: "2021",
+        pmid: "34798060",
+        doi: "10.1016/S0140-6736(21)01751-7",
+        model: { fa: "کارآزمایی فاز ۲ چندمرکزی", en: "Multicentre phase 2 trial" },
+        finding: {
+          fa: "همهٔ سطوح دوز وزن را بیشتر از دارونما کم کردند.",
+          en: "Every dose level reduced weight more than placebo.",
+        },
+      },
+    ],
+    storage,
+  },
+  teriparatide: {
+    sequence: ["Ser", "Val", "Ser", "Glu", "Ile", "Gln", "Leu", "Met", "His", "Asn", "Leu", "Gly", "Lys", "His", "Leu", "Asn", "Ser", "Met", "Glu", "Arg", "Val", "Glu", "Trp", "Leu", "Arg", "Lys", "Lys", "Leu", "Gln", "Asp", "Val", "His", "Asn", "Phe"],
+    sequenceNote: {
+      fa: "۳۴ ریشهٔ اول هورمون پاراتیروئید انسان؛ بخشی که برای فعال کردن گیرنده کافی است.",
+      en: "The first 34 residues of human parathyroid hormone, the part that is enough to activate its receptor.",
+    },
+    halfLife: {
+      fa: "حدود یک ساعت پس از تزریق زیرجلدی.",
+      en: "About one hour after subcutaneous injection.",
+    },
+    receptors: {
+      fa: "گیرندهٔ PTH1R روی استئوبلاست‌ها و کلیه.",
+      en: "PTH1R on osteoblasts and in the kidney.",
+    },
+    mechanism: {
+      fa: "تزریق متناوب PTH، برخلاف بالا بودن مداوم آن، ساخت استخوان را بیشتر از برداشت آن تحریک می‌کند. به همین دلیل تری‌پاراتاید داروی «سازندهٔ استخوان» است، نه فقط مهارکنندهٔ تحلیل.",
+      en: "Intermittent PTH, unlike a constantly high level, stimulates bone formation more than resorption. That makes teriparatide a bone-building drug rather than just an anti-resorptive.",
+    },
+    studies: [
+      {
+        fa: "۱۶۳۷ زن یائسه با شکستگی قبلی مهره: شکستگی جدید مهره ۵٪ و ۴٪ در دو سطح دوز، در برابر ۱۴٪ با دارونما.",
+        en: "1,637 postmenopausal women with a previous vertebral fracture: new vertebral fractures in 5% and 4% at two dose levels, versus 14% with placebo.",
+      },
+      {
+        fa: "تراکم استخوان ستون فقرات ۹ تا ۱۳ واحد درصد بیشتر از دارونما بالا رفت.",
+        en: "Spinal bone density rose 9 to 13 percentage points more than with placebo.",
+      },
+    ],
+    literature: [
+      {
+        title: "Effect of parathyroid hormone (1-34) on fractures and bone mineral density in postmenopausal women with osteoporosis",
+        journal: "New England Journal of Medicine",
+        year: "2001",
+        pmid: "11346808",
+        doi: "10.1056/NEJM200105103441904",
+        model: { fa: "کارآزمایی تصادفی با دارونما", en: "Placebo-controlled randomised trial" },
+        finding: {
+          fa: "خطر شکستگی مهره‌ای و غیرمهره‌ای کم شد و تراکم استخوان بالا رفت.",
+          en: "Vertebral and non-vertebral fracture risk fell and bone density rose.",
+        },
+      },
+    ],
+    storage: licensedStorage,
+  },
+  gonadorelin: {
+    sequence: ["pGlu", "His", "Trp", "Ser", "Tyr", "Gly", "Leu", "Arg", "Pro", "Gly-NH2"],
+    sequenceNote: {
+      fa: "ده ریشه با پیروگلوتامات در انتهای N و گلیسین‌آمید در انتهای C. توالی آن در ۱۹۷۱ از هیپوتالاموس خوک تعیین شد.",
+      en: "Ten residues with pyroglutamate at the N-terminus and glycinamide at the C-terminus. Its sequence was determined in 1971 from pig hypothalamus.",
+    },
+    halfLife: {
+      fa: "چند دقیقه در پلاسما.",
+      en: "A few minutes in plasma.",
+    },
+    receptors: {
+      fa: "گیرندهٔ GnRH روی گنادوتروپ‌های هیپوفیز.",
+      en: "The GnRH receptor on pituitary gonadotrophs.",
+    },
+    mechanism: {
+      fa: "ترشح ضربانی GnRH ترشح LH و FSH را تحریک می‌کند، ولی تحریک مداوم گیرنده آن را حساسیت‌زدایی می‌کند و تولید هورمون جنسی را پایین می‌آورد. آگونیست‌های طولانی‌اثر GnRH، مثل لوپرولین، بر همین اساس کار می‌کنند.",
+      en: "Pulsed GnRH stimulates LH and FSH release, but continuous stimulation desensitises the receptor and lowers sex-hormone output. Long-acting GnRH agonists such as leuprorelin rely on that.",
+    },
+    studies: [
+      {
+        fa: "۱۹۷۱: تعیین توالی هورمون آزادکنندهٔ LH و FSH از هیپوتالاموس خوک.",
+        en: "1971: sequencing of the LH- and FSH-releasing hormone from pig hypothalamus.",
+      },
+      {
+        fa: "کاربرد بالینی: آزمون تحریک هیپوفیز و درمان ضربانی در برخی ناباروری‌های هیپوتالاموسی.",
+        en: "Clinical use: pituitary stimulation testing and pulsed treatment in some hypothalamic infertility.",
+      },
+    ],
+    literature: [
+      {
+        title: "Structure of the porcine LH- and FSH-releasing hormone. I. The proposed amino acid sequence",
+        journal: "Biochemical and Biophysical Research Communications",
+        year: "1971",
+        pmid: "4936338",
+        doi: "10.1016/s0006-291x(71)80019-0",
+        model: { fa: "استخراج از هیپوتالاموس خوک", en: "Extraction from pig hypothalamus" },
+        finding: {
+          fa: "توالی ده‌ریشه‌ای هورمون آزادکنندهٔ گنادوتروپین پیشنهاد شد.",
+          en: "The ten-residue sequence of gonadotropin-releasing hormone was proposed.",
+        },
+      },
+    ],
+    storage: licensedStorage,
+  },
+  "igf-1-lr3": {
+    sequence: ["Met", "Phe", "Pro", "Ala", "Met", "Pro", "Leu", "Ser", "Ser", "Leu", "Phe", "Val", "Asn", "Gly", "Pro", "Arg", "Thr", "Leu", "Cys", "Gly", "Ala", "Glu", "Leu", "Val", "Asp", "Ala", "Leu", "Gln", "Phe", "Val", "Cys", "Gly", "Asp", "Arg", "Gly", "Phe", "Tyr", "Phe", "Asn", "Lys", "Pro", "Thr", "Gly", "Tyr", "Gly", "Ser", "Ser", "Ser", "Arg", "Arg", "Ala", "Pro", "Gln", "Thr", "Gly", "Ile", "Val", "Asp", "Glu", "Cys", "Cys", "Phe", "Arg", "Ser", "Cys", "Asp", "Leu", "Arg", "Arg", "Leu", "Glu", "Met", "Tyr", "Cys", "Ala", "Pro", "Leu", "Lys", "Pro", "Ala", "Lys", "Ser", "Ala"],
+    sequenceNote: {
+      fa: "۸۳ ریشه: دنبالهٔ ۱۳ ریشه‌ای از هورمون رشد خوک (Met-pGH 1–11 و Val-Asn) در انتهای N، و IGF-1 انسان با Arg به جای Glu در جایگاه ۳.",
+      en: "83 residues: a 13-residue extension from pig growth hormone (Met-pGH 1–11 plus Val-Asn) at the N-terminus, and human IGF-1 with Arg in place of Glu at position 3.",
+    },
+    halfLife: {
+      fa: "دادهٔ فارماکوکینتیک انسانی ندارد. برای محیط کشت سلول ساخته شد.",
+      en: "There are no human pharmacokinetic data. It was made for cell-culture media.",
+    },
+    receptors: {
+      fa: "گیرندهٔ IGF-1 (IGF-1R). اتصالش به پروتئین‌های حامل IGF (IGFBP) بسیار کم است.",
+      en: "The IGF-1 receptor (IGF-1R). It binds IGF-binding proteins (IGFBPs) very poorly.",
+    },
+    mechanism: {
+      fa: "IGF-1 در بدن بیشتر به IGFBPها چسبیده است. تغییر جایگاه ۳ و دنبالهٔ N اتصال به IGFBP را کم می‌کنند، پس بخش آزاد و فعال بیشتر می‌شود. در سلول‌هایی که IGFBP ترشح می‌کنند، از IGF-1 طبیعی قوی‌تر بود.",
+      en: "In the body, IGF-1 is mostly held by IGFBPs. The position-3 change and the N-terminal extension reduce IGFBP binding, leaving more free, active peptide. In cells that secrete IGFBPs it was more potent than native IGF-1.",
+    },
+    studies: [
+      {
+        fa: "میوبلاست L6: تحریک قوی‌تر ساخت پروتئین و DNA نسبت به IGF-1.",
+        en: "L6 myoblasts: stronger stimulation of protein and DNA synthesis than IGF-1.",
+      },
+      {
+        fa: "در سلول بدون IGFBP، از IGF-1 ضعیف‌تر بود؛ یعنی برتری‌اش از فرار از IGFBP است، نه گیرندهٔ قوی‌تر.",
+        en: "In cells without IGFBPs it was weaker than IGF-1, so its advantage comes from escaping IGFBPs, not a stronger receptor fit.",
+      },
+      {
+        fa: "افت قند خون عارضهٔ شناخته‌شدهٔ IGF-1 دارویی است و این ماده در ورزش ممنوع است؛ دلیل پرچم‌های این مدخل همین است.",
+        en: "Low blood sugar is a known effect of medicinal IGF-1, and this substance is banned in sport; those are the reasons for this entry’s flags.",
+      },
+    ],
+    literature: [
+      {
+        title: "Novel recombinant fusion protein analogues of insulin-like growth factor (IGF)-I indicate the relative importance of IGF-binding protein and receptor binding for enhanced biological potency",
+        journal: "Journal of Molecular Endocrinology",
+        year: "1992",
+        pmid: "1378742",
+        doi: "10.1677/jme.0.0080213",
+        model: { fa: "کشت سلول", en: "Cell culture" },
+        finding: {
+          fa: "Long [Arg3]-IGF-I قوی‌ترین آنالوگ در سلول‌های ترشح‌کنندهٔ IGFBP بود.",
+          en: "Long [Arg3]-IGF-I was the most potent analogue in IGFBP-secreting cells.",
+        },
+      },
+    ],
+    storage,
+  },
 };
