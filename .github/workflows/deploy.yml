@@ -38,9 +38,13 @@ jobs:
         run: |
           sleep 30
           status=0
-          for path in / /catalog /catalog/bpc-157 /articles /safety /sitemap.xml /google593823cc1406904b.html; do
+          for path in / /catalog /catalog/bpc-157 /articles /safety /sitemap.xml; do
             code=$(curl -s -o /dev/null -w '%{http_code}' -L --max-redirs 3 "https://peptideyar.pages.dev$path" || true)
             echo "$path -> $code"
             if [ "$code" != "200" ]; then status=1; fi
           done
+          # Google fetches its verification file without following redirects.
+          code=$(curl -s -o /dev/null -w '%{http_code}' "https://peptideyar.pages.dev/google593823cc1406904b.html" || true)
+          echo "/google593823cc1406904b.html (no redirects) -> $code"
+          if [ "$code" != "200" ]; then status=1; fi
           exit $status
