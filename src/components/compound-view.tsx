@@ -3,9 +3,10 @@
 import { tx, useLanguage, type Lang } from "@/components/language";
 import { sectionColor, Vial } from "@/components/vial";
 import { getCompound, parentCompound, rawSibling, relatedCompounds } from "@/lib/catalog";
+import { site } from "@/lib/site";
 import { flagLabel, flagNote, groupLabel, sectionLabel, text } from "@/lib/catalog/labels";
 import { monographs, monographsReviewed } from "@/lib/catalog/monographs";
-import { ArrowLeft, ArrowRight, Calculator, ExternalLink, GitCompare } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calculator, ExternalLink, GitCompare, Send } from "lucide-react";
 import Link from "next/link";
 
 export function CompoundView({ slug }: { slug: string }) {
@@ -198,6 +199,30 @@ export function CompoundView({ slug }: { slug: string }) {
             "This name does not have a long monograph with a sequence and papers, so that invented chemistry would not be published. The identity, class, and legal status above are the reliable content.",
           )}
         </p>
+      )}
+
+      {severe ? null : (
+        <aside className="mt-10 flex flex-col gap-4 rounded-2xl border border-teal-200 bg-teal-50 p-5 sm:flex-row sm:items-center sm:justify-between dark:border-teal-900 dark:bg-teal-950/40">
+          <div>
+            <h2 className="font-black text-teal-900 dark:text-teal-100">{tx(lang, "سؤالی دربارهٔ این ماده دارید؟", "Questions about this substance?")}</h2>
+            <p className="mt-1 text-sm leading-7 text-teal-900/80 dark:text-teal-100/80">
+              {tx(
+                lang,
+                "برای راهنمایی بیشتر و معرفی داروخانه یا مرکز مجاز، در تلگرام پپتیدیار پیام بدهید. پپتیدیار خودش چیزی نمی‌فروشد.",
+                "For further guidance and a referral to a licensed pharmacy or centre, message PeptideYar on Telegram. PeptideYar itself sells nothing.",
+              )}
+            </p>
+          </div>
+          <a
+            href={site.telegram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-teal-700 px-5 text-sm font-bold text-white hover:bg-teal-600"
+          >
+            <Send className="size-4" aria-hidden />
+            {tx(lang, "پیام در تلگرام", "Message on Telegram")}
+          </a>
+        </aside>
       )}
 
       {related.length > 0 ? (

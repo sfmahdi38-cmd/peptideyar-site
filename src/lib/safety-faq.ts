@@ -15,6 +15,13 @@ export const safetyQuestions: SafetyQuestion[] = [
     enA: "No. There is no price, basket, stock count, or seller link. The catalog layout exists so a chemical name can be found.",
   },
   {
+    id: "contact",
+    faQ: "برای سؤال بیشتر یا معرفی مرکز مجاز چه کنم؟",
+    enQ: "Where can I ask more, or find a licensed source?",
+    faA: "در تلگرام پپتیدیار به نشانی @peptideyar پیام بدهید. پپتیدیار خودش چیزی نمی‌فروشد و فقط به داروخانه یا مرکز دارای مجوز ارجاع می‌دهد.",
+    enA: "Message PeptideYar on Telegram at @peptideyar. PeptideYar sells nothing itself and only refers people to a licensed pharmacy or centre.",
+  },
+  {
     id: "human",
     faQ: "می‌شود این مواد را مصرف کرد؟",
     enQ: "Can these substances be taken?",
