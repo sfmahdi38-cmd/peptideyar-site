@@ -3,6 +3,7 @@ import { JsonLdScript } from "@/components/json-ld";
 import { compounds, getCompound } from "@/lib/catalog";
 import type { Compound } from "@/lib/catalog/types";
 import { monographs, monographsReviewed } from "@/lib/catalog/monographs";
+import { compoundFaq } from "@/lib/compound-faq";
 import { pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 import type { Metadata } from "next";
@@ -24,7 +25,9 @@ export async function generateMetadata({
   if (!compound) return {};
   return pageMetadata({
     path: `/catalog/${compound.slug}`,
-    title: compound.name,
+    title: monographs[compound.slug]
+      ? `${compound.name} (${compound.faName}) چیست؟ مکانیسم، مطالعات و وضعیت قانونی`
+      : `${compound.name} (${compound.faName})`,
     description: compound.summary.fa,
   });
 }
@@ -83,6 +86,16 @@ function structuredData(compound: Compound) {
               })),
             }
           : {}),
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        inLanguage: "fa",
+        mainEntity: compoundFaq(compound, monograph).map((item) => ({
+          "@type": "Question",
+          name: item.q.fa,
+          acceptedAnswer: { "@type": "Answer", text: item.a.fa },
+        })),
       },
     ],
   };

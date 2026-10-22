@@ -529,6 +529,10 @@ export const monographs: Record<string, Monograph> = {
         en: "SURMOUNT-1 (2,539 adults without diabetes, 72 weeks): mean weight change from −15% to −20.9% across three dose levels, versus −3.1% with placebo.",
       },
       {
+        fa: "SURMOUNT-5 (۷۵۱ بزرگسال بدون دیابت، مقایسهٔ مستقیم، ۷۲ هفته): میانگین کاهش وزن ۲۰٫۲٪ با تیرزپاتاید در برابر ۱۳٫۷٪ با سماگلوتاید.",
+        en: "SURMOUNT-5 (751 adults without diabetes, head to head, 72 weeks): mean weight loss 20.2% with tirzepatide versus 13.7% with semaglutide.",
+      },
+      {
         fa: "فاز ۱: عارضه‌های اصلی گوارشی (تهوع، استفراغ، اسهال) و وابسته به دوز بودند.",
         en: "Phase 1: the main side effects were gastrointestinal (nausea, vomiting, diarrhoea) and dose-dependent.",
       },
@@ -544,6 +548,18 @@ export const monographs: Record<string, Monograph> = {
         finding: {
           fa: "در ۷۲ هفته، هر سه سطح دوز کاهش وزنی بسیار بیشتر از دارونما داشتند.",
           en: "Over 72 weeks, all three dose levels produced far more weight loss than placebo.",
+        },
+      },
+      {
+        title: "Tirzepatide as Compared with Semaglutide for the Treatment of Obesity",
+        journal: "New England Journal of Medicine",
+        year: "2025",
+        pmid: "40353578",
+        doi: "10.1056/NEJMoa2416394",
+        model: { fa: "کارآزمایی فاز ۳b، مقایسهٔ مستقیم با سماگلوتاید", en: "Phase 3b head-to-head trial against semaglutide" },
+        finding: {
+          fa: "در ۷۲ هفته، کاهش وزن و دور کمر با تیرزپاتاید بیشتر از سماگلوتاید بود.",
+          en: "Over 72 weeks, tirzepatide reduced weight and waist circumference more than semaglutide.",
         },
       },
       {

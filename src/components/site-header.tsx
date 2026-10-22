@@ -3,13 +3,14 @@
 import { tx, useLanguage } from "@/components/language";
 import { cn } from "cn";
 import { site } from "@/lib/site";
-import { Atom, BookOpen, Calculator, FlaskConical, GitCompare, Menu, Moon, Send, ShieldAlert, Sun, X } from "lucide-react";
+import { Atom, BookOpen, Calculator, FlaskConical, GitCompare, Menu, Moon, Newspaper, Send, ShieldAlert, Sun, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const links = [
   { href: "/catalog", fa: "کاتالوگ", en: "Catalog", icon: FlaskConical },
+  { href: "/articles", fa: "راهنماها", en: "Guides", icon: Newspaper },
   { href: "/calculator", fa: "محاسبهٔ غلظت", en: "Concentration", icon: Calculator },
   { href: "/compare", fa: "مقایسه", en: "Compare", icon: GitCompare },
   { href: "/academy", fa: "آکادمی", en: "Academy", icon: BookOpen },

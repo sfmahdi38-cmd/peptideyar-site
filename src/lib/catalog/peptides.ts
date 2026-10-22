@@ -159,7 +159,7 @@ export const peptides: CompoundInput[] = [
     cas: "137525-51-0",
     formula: "C62H98N16O22",
     mw: "1419.55 g/mol",
-    flags: [...research],
+    flags: [...research, "wada"],
     fa: "پنتادکاپپتید سنتتیک برگرفته از پروتئینی در شیرهٔ معده است. پژوهش پیش‌بالینی آن بیشتر دربارهٔ تاندون، مخاط گوارش و رگ‌زایی است. داروی مجاز بریتانیا یا اتحادیه اروپا نیست.",
     en: "A synthetic pentadecapeptide derived from a gastric protein. Preclinical work has focused on tendon, gut mucosa, and angiogenesis. It is not a UK or EU authorised medicine.",
   }),

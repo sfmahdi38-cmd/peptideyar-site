@@ -14,3 +14,4 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Every paper needs a `pmid` and `doi` that were checked against PubMed. Copy titles and years from PubMed, never from memory.
 - Never add doses, dosing schedules, reconstitution steps, or sourcing routes. Report trial results without dose numbers.
 - Run `npm run lint` and `npm run build` before pushing.
+- Daily guides are Markdown files in `content/articles` (copy `_template.md`). `related` must list existing catalog slugs or the build fails. Write commercial-intent topics (for example "خرید پپتید") as honest buyer guidance; never imply PeptideYar sells anything.

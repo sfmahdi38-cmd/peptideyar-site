@@ -1,12 +1,14 @@
 "use client";
 
-import { tx, useLanguage, type Lang } from "@/components/language";
+import { tx, useLanguage } from "@/components/language";
+import { TelegramCta } from "@/components/telegram-cta";
 import { sectionColor, Vial } from "@/components/vial";
 import { getCompound, parentCompound, rawSibling, relatedCompounds } from "@/lib/catalog";
-import { site } from "@/lib/site";
+import { compoundFaq } from "@/lib/compound-faq";
+import { formatDate } from "@/lib/dates";
 import { flagLabel, flagNote, groupLabel, sectionLabel, text } from "@/lib/catalog/labels";
 import { monographs, monographsReviewed } from "@/lib/catalog/monographs";
-import { ArrowLeft, ArrowRight, Calculator, ExternalLink, GitCompare, Send } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calculator, ExternalLink, GitCompare } from "lucide-react";
 import Link from "next/link";
 
 export function CompoundView({ slug }: { slug: string }) {
@@ -29,6 +31,7 @@ export function CompoundView({ slug }: { slug: string }) {
   const related = relatedCompounds(compound);
   const Back = lang === "fa" ? ArrowRight : ArrowLeft;
   const severe = compound.flags.includes("severe-hazard");
+  const faq = compoundFaq(compound, monograph);
 
   return (
     <article className="mx-auto max-w-6xl px-4 py-8">
@@ -201,28 +204,31 @@ export function CompoundView({ slug }: { slug: string }) {
         </p>
       )}
 
+      <section className="mt-10">
+        <h2 className="text-lg font-black">{tx(lang, "سؤال‌های رایج", "Common questions")}</h2>
+        <div className="mt-3 divide-y divide-slate-200 overflow-hidden rounded-2xl border border-slate-200 dark:divide-slate-800 dark:border-slate-800">
+          {faq.map((item) => (
+            <details key={item.q.en} className="group px-4 py-3">
+              <summary className="cursor-pointer list-none font-bold leading-7 marker:hidden">
+                <span className="me-2 inline-block text-teal-600 transition group-open:rotate-45">+</span>
+                {item.q[lang]}
+              </summary>
+              <p className="mt-2 text-sm leading-8 text-slate-700 dark:text-slate-200">{item.a[lang]}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
       {severe ? null : (
-        <aside className="mt-10 flex flex-col gap-4 rounded-2xl border border-teal-200 bg-teal-50 p-5 sm:flex-row sm:items-center sm:justify-between dark:border-teal-900 dark:bg-teal-950/40">
-          <div>
-            <h2 className="font-black text-teal-900 dark:text-teal-100">{tx(lang, "سؤالی دربارهٔ این ماده دارید؟", "Questions about this substance?")}</h2>
-            <p className="mt-1 text-sm leading-7 text-teal-900/80 dark:text-teal-100/80">
-              {tx(
-                lang,
-                "برای راهنمایی بیشتر و معرفی داروخانه یا مرکز مجاز، در تلگرام پپتیدیار پیام بدهید. پپتیدیار خودش چیزی نمی‌فروشد.",
-                "For further guidance and a referral to a licensed pharmacy or centre, message PeptideYar on Telegram. PeptideYar itself sells nothing.",
-              )}
-            </p>
-          </div>
-          <a
-            href={site.telegram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-teal-700 px-5 text-sm font-bold text-white hover:bg-teal-600"
-          >
-            <Send className="size-4" aria-hidden />
-            {tx(lang, "پیام در تلگرام", "Message on Telegram")}
-          </a>
-        </aside>
+        <TelegramCta
+          title={tx(lang, "سؤالی دربارهٔ این ماده دارید؟", "Questions about this substance?")}
+          body={tx(
+            lang,
+            "برای راهنمایی بیشتر و معرفی داروخانه یا مرکز مجاز، در تلگرام پپتیدیار پیام بدهید. پپتیدیار خودش چیزی نمی‌فروشد.",
+            "For further guidance and a referral to a licensed pharmacy or centre, message PeptideYar on Telegram. PeptideYar itself sells nothing.",
+          )}
+          button={tx(lang, "پیام در تلگرام", "Message on Telegram")}
+        />
       )}
 
       {related.length > 0 ? (
@@ -242,10 +248,6 @@ export function CompoundView({ slug }: { slug: string }) {
       ) : null}
     </article>
   );
-}
-
-function formatDate(iso: string, lang: Lang): string {
-  return new Intl.DateTimeFormat(lang === "fa" ? "fa-IR" : "en-GB", { dateStyle: "long", timeZone: "UTC" }).format(new Date(iso));
 }
 
 function Row({ label, value, ltr = true }: { label: string; value: string; ltr?: boolean }) {
