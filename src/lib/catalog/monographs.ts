@@ -63,6 +63,14 @@ export const monographs: Record<string, Monograph> = {
         fa: "کارآزمایی انسانیِ تعیین‌کننده برای مجوز دارو منتشر نشده است.",
         en: "No decisive human trial that would support a marketing authorisation has been published.",
       },
+      {
+        fa: "موش، تاندون آشیل (۲۰۲۶): BPC-157 بافت را از نظر عددی بهتر کرد ولی معنادار نبود، و ترکیبش با TB-500 سود اضافه‌ای نداشت.",
+        en: "Rat Achilles tendon (2026): BPC-157 improved tissue scores numerically but not significantly, and combining it with TB-500 added no benefit.",
+      },
+      {
+        fa: "ژوئیهٔ ۲۰۲۶: کمیتهٔ مشورتی ترکیب دارویی FDA با رأی ۸ به ۶ توصیه کرد BPC-157 برای کولیت اولسراتیو به فهرست مواد قابل ترکیب در داروخانه (503A) اضافه شود. رأی کمیته الزام‌آور نیست، کارشناسان خود FDA مخالف بودند، و این رأی تأیید دارو نیست.",
+        en: "July 2026: the FDA Pharmacy Compounding Advisory Committee voted 8–6 to recommend adding BPC-157 for ulcerative colitis to the 503A compounding list. The vote is not binding, FDA’s own staff opposed it, and it is not drug approval.",
+      },
     ],
     literature: [
       {
@@ -75,6 +83,18 @@ export const monographs: Record<string, Monograph> = {
         finding: {
           fa: "نویسندگان افزایش رشد و مهاجرت سلول تاندون را از مسیر FAK-paxillin گزارش کردند.",
           en: "The authors reported increased tendon-cell outgrowth and migration through FAK-paxillin.",
+        },
+      },
+      {
+        title: "Effects of BPC-157 and TB-500 on Achilles tendon healing in rats: A histopathological and biomechanical study",
+        journal: "Joint Diseases and Related Surgery",
+        year: "2026",
+        pmid: "42542926",
+        doi: "10.52312/jdrs.2026.2951",
+        model: { fa: "ترمیم تاندون آشیل در موش، چهار گروه", en: "Rat Achilles-tendon repair, four groups" },
+        finding: {
+          fa: "BPC-157 بهبود عددیِ غیرمعنادار داشت؛ TB-500 استحکام مکانیکی را معنادار بالا برد؛ ترکیب دو ماده از هر کدام به‌تنهایی بهتر نبود.",
+          en: "BPC-157 gave a non-significant numerical improvement; TB-500 significantly raised mechanical strength; the combination was no better than either alone.",
         },
       },
     ],
@@ -107,6 +127,14 @@ export const monographs: Record<string, Monograph> = {
         fa: "قطرهٔ چشمی RGN-259 (تیموزین بتا-۴) در انسان برای قرنیه مطالعه شده و با ویال پژوهشی TB-500 یکی نیست.",
         en: "The RGN-259 eye drop (thymosin β-4) has been studied in people for the cornea and is not the same as a research TB-500 vial.",
       },
+      {
+        fa: "موش، تاندون آشیل (۲۰۲۶): TB-500 (تیموزین بتا-۴ مصنوعی) بار شکست تاندون را معنادار بالا برد؛ ترکیبش با BPC-157 سود اضافه‌ای نداشت.",
+        en: "Rat Achilles tendon (2026): TB-500 (synthetic thymosin β-4) significantly raised tendon load to failure; combining it with BPC-157 added no benefit.",
+      },
+      {
+        fa: "ژوئیهٔ ۲۰۲۶: کمیتهٔ مشورتی ترکیب دارویی FDA با رأی ۸ به ۶ توصیه کرد TB-500 برای ترمیم زخم به فهرست 503A اضافه شود. رأی کمیته الزام‌آور نیست، کارشناسان خود FDA مخالف بودند، و این رأی تأیید دارو نیست.",
+        en: "July 2026: the FDA Pharmacy Compounding Advisory Committee voted 8–6 to recommend adding TB-500 for wound healing to the 503A list. The vote is not binding, FDA’s own staff opposed it, and it is not drug approval.",
+      },
     ],
     literature: [
       {
@@ -119,6 +147,18 @@ export const monographs: Record<string, Monograph> = {
         finding: {
           fa: "تیموزین بتا-۴ با کمپلکس ILK-PINCH و مسیر Akt به بقای سلول قلبی نسبت داده شد.",
           en: "Thymosin β-4 was linked to cardiac-cell survival through an ILK-PINCH complex and Akt.",
+        },
+      },
+      {
+        title: "Effects of BPC-157 and TB-500 on Achilles tendon healing in rats: A histopathological and biomechanical study",
+        journal: "Joint Diseases and Related Surgery",
+        year: "2026",
+        pmid: "42542926",
+        doi: "10.52312/jdrs.2026.2951",
+        model: { fa: "ترمیم تاندون آشیل در موش، چهار گروه", en: "Rat Achilles-tendon repair, four groups" },
+        finding: {
+          fa: "TB-500 تنها گروهی بود که استحکام مکانیکی تاندون را معنادار بالا برد؛ ترکیب با BPC-157 سود اضافه نداشت.",
+          en: "TB-500 was the only group with a significant gain in tendon mechanical strength; adding BPC-157 gave no extra benefit.",
         },
       },
     ],
@@ -218,6 +258,10 @@ export const monographs: Record<string, Monograph> = {
         fa: "کارآزمایی بزرگ و مستقل که طول عمر انسان را ثابت کند منتشر نشده است.",
         en: "No large independent trial has shown an effect on human lifespan.",
       },
+      {
+        fa: "ژوئیهٔ ۲۰۲۶: کمیتهٔ مشورتی ترکیب دارویی FDA توصیه کرد اپیتالون به فهرست 503A اضافه شود. رأی کمیته الزام‌آور نیست، کارشناسان خود FDA مخالف بودند، و این رأی تأیید دارو نیست.",
+        en: "July 2026: the FDA Pharmacy Compounding Advisory Committee recommended adding epitalon to the 503A list. The vote is not binding, FDA’s own staff opposed it, and it is not drug approval.",
+      },
     ],
     literature: [
       {
@@ -269,6 +313,10 @@ export const monographs: Record<string, Monograph> = {
       {
         fa: "مدل ایسکمی مغز موش: گزارش تغییر بیان ژن‌های عروقی و ایمنی.",
         en: "Rat brain-ischaemia model: reported changes in vascular and immune gene expression.",
+      },
+      {
+        fa: "ژوئیهٔ ۲۰۲۶: کمیتهٔ مشورتی ترکیب دارویی FDA توصیه کرد سماکس به فهرست 503A اضافه شود. رأی کمیته الزام‌آور نیست، کارشناسان خود FDA مخالف بودند، و این رأی تأیید دارو نیست.",
+        en: "July 2026: the FDA Pharmacy Compounding Advisory Committee recommended adding Semax to the 503A list. The vote is not binding, FDA’s own staff opposed it, and it is not drug approval.",
       },
     ],
     literature: [
@@ -739,6 +787,10 @@ export const monographs: Record<string, Monograph> = {
         fa: "کارآزمایی انسانیِ منتشرشده‌ای که برای مجوز دارو کافی باشد وجود ندارد.",
         en: "No published human trial is sufficient for a medicine licence.",
       },
+      {
+        fa: "ژوئیهٔ ۲۰۲۶: کمیتهٔ مشورتی ترکیب دارویی FDA با رأی ۷ به ۵ توصیه کرد MOTS-c برای چاقی و پوکی استخوان به فهرست 503A اضافه شود. رأی کمیته الزام‌آور نیست، کارشناسان خود FDA مخالف بودند، و این رأی تأیید دارو نیست.",
+        en: "July 2026: the FDA Pharmacy Compounding Advisory Committee voted 7–5 to recommend adding MOTS-c for obesity and osteoporosis to the 503A list. The vote is not binding, FDA’s own staff opposed it, and it is not drug approval.",
+      },
     ],
     literature: [
       {
@@ -874,6 +926,10 @@ export const monographs: Record<string, Monograph> = {
       {
         fa: "کارآزمایی انسانی منتشرشده برای مجوز دارو وجود ندارد.",
         en: "No published human trial supports a medicine licence.",
+      },
+      {
+        fa: "ژوئیهٔ ۲۰۲۶: کمیتهٔ مشورتی ترکیب دارویی FDA با رأی ۸ به ۶ توصیه کرد KPV برای ترمیم زخم و بیماری‌های التهابی به فهرست 503A اضافه شود. رأی کمیته الزام‌آور نیست، کارشناسان خود FDA مخالف بودند، و این رأی تأیید دارو نیست.",
+        en: "July 2026: the FDA Pharmacy Compounding Advisory Committee voted 8–6 to recommend adding KPV for wound healing and inflammatory conditions to the 503A list. The vote is not binding, FDA’s own staff opposed it, and it is not drug approval.",
       },
     ],
     literature: [
@@ -1286,6 +1342,10 @@ export const monographs: Record<string, Monograph> = {
       {
         fa: "مطالعات انسانی کوچک و ناهمگون‌اند و اثر پایدار بر خواب نشان نداده‌اند.",
         en: "Human studies are small and inconsistent and have not shown a reliable effect on sleep.",
+      },
+      {
+        fa: "ژوئیهٔ ۲۰۲۶: کمیتهٔ مشورتی ترکیب دارویی FDA با رأی ۶ به ۷ افزودن امیدلتاید (نام دارویی DSIP) به فهرست 503A را رد کرد.",
+        en: "July 2026: the FDA Pharmacy Compounding Advisory Committee voted 6–7 against adding emideltide (the drug name for DSIP) to the 503A list.",
       },
     ],
     literature: [
