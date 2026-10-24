@@ -47,7 +47,7 @@ export function articleSummaries(limit?: number): ArticleSummary[] {
 }
 
 function parseArticle(slug: string, source: string): Article {
-  const match = source.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
   if (!match) throw new Error(`Article ${slug} has no frontmatter`);
   const meta = parseFrontmatter(match[1]);
   const body = match[2].trim();

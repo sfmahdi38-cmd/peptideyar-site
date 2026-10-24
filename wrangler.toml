@@ -1,4 +1,5 @@
-name = "peptide-dex"
+name = "peptideha"
+account_id = "80245fc9347b5e12ea0e6cf9e3e3b163"
 compatibility_date = "2026-10-19"
 main = "worker/index.js"
 

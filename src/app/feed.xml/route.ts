@@ -21,7 +21,7 @@ export function GET() {
   <channel>
     <title>${site.nameFa} | راهنماها</title>
     <link>${site.url}/articles</link>
-    <description>راهنماهای آموزشی روزانهٔ پپتیدیار. بدون فروش.</description>
+    <description>راهنماهای آموزشی روزانهٔ پپتیدها. بدون فروش.</description>
     <language>fa</language>
 ${items}
   </channel>

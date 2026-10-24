@@ -9,8 +9,8 @@ export type SafetyQuestion = {
 export const safetyQuestions: SafetyQuestion[] = [
   {
     id: "sell",
-    faQ: "آیا پپتیدیار می‌فروشد؟",
-    enQ: "Does PeptideYar sell anything?",
+    faQ: "آیا پپتیدها می‌فروشد؟",
+    enQ: "Does PeptideHa sell anything?",
     faA: "نه. قیمت، سبد خرید، موجودی و لینک فروشنده ندارد. چیدمان کاتالوگ فقط برای پیدا کردن نام شیمیایی است.",
     enA: "No. There is no price, basket, stock count, or seller link. The catalog layout exists so a chemical name can be found.",
   },
@@ -18,8 +18,8 @@ export const safetyQuestions: SafetyQuestion[] = [
     id: "contact",
     faQ: "برای سؤال بیشتر یا معرفی مرکز مجاز چه کنم؟",
     enQ: "Where can I ask more, or find a licensed source?",
-    faA: "در تلگرام پپتیدیار به نشانی @peptideyar پیام بدهید. پپتیدیار خودش چیزی نمی‌فروشد و فقط به داروخانه یا مرکز دارای مجوز ارجاع می‌دهد.",
-    enA: "Message PeptideYar on Telegram at @peptideyar. PeptideYar sells nothing itself and only refers people to a licensed pharmacy or centre.",
+    faA: "در تلگرام به نشانی @peptideha یا @peptideyar پیام بدهید. پپتیدها خودش چیزی نمی‌فروشد و فقط به داروخانه یا مرکز دارای مجوز ارجاع می‌دهد.",
+    enA: "Message @peptideha or @peptideyar on Telegram. PeptideHa sells nothing itself and only refers people to a licensed pharmacy or centre.",
   },
   {
     id: "human",
@@ -46,8 +46,8 @@ export const safetyQuestions: SafetyQuestion[] = [
     id: "iran",
     faQ: "وضعیت ایران چیست؟",
     enQ: "What about Iran?",
-    faA: "در ایران، عرضهٔ دارو به ثبت و مجوز سازمان غذا و دارو نیاز دارد. پپتیدیار وضعیت ثبت تک‌تک این نام‌ها را در ایران بررسی نکرده است. ویال پژوهشی، حتی اگر نامش با یک داروی ثبت‌شده یکی باشد، همان فراوردهٔ مجاز نیست. برای فراوردهٔ دارویی، فهرست رسمی سازمان غذا و دارو یا پزشک و داروساز را ملاک بگیرید.",
-    enA: "In Iran, supplying a medicine requires registration and approval by the Iran Food and Drug Administration. PeptideYar has not checked the Iranian registration status of each name. A research vial is not the authorised product, even when it shares a registered medicine's name. For a medicine, rely on the official IFDA list or on a doctor or pharmacist.",
+    faA: "در ایران، عرضهٔ دارو به ثبت و مجوز سازمان غذا و دارو نیاز دارد. پپتیدها وضعیت ثبت تک‌تک این نام‌ها را در ایران بررسی نکرده است. ویال پژوهشی، حتی اگر نامش با یک داروی ثبت‌شده یکی باشد، همان فراوردهٔ مجاز نیست. برای فراوردهٔ دارویی، فهرست رسمی سازمان غذا و دارو یا پزشک و داروساز را ملاک بگیرید.",
+    enA: "In Iran, supplying a medicine requires registration and approval by the Iran Food and Drug Administration. PeptideHa has not checked the Iranian registration status of each name. A research vial is not the authorised product, even when it shares a registered medicine's name. For a medicine, rely on the official IFDA list or on a doctor or pharmacist.",
   },
   {
     id: "dnp",

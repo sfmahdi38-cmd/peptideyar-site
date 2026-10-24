@@ -39,7 +39,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   return (
     <div dir="rtl" lang="fa" className="mx-auto max-w-3xl px-4 py-8">
       <nav aria-label="مسیر صفحه" className="text-sm text-slate-500">
-        <Link href="/" className="hover:text-teal-700">پپتیدیار</Link>
+        <Link href="/" className="hover:text-teal-700">پپتیدها</Link>
         <span className="mx-2">›</span>
         <Link href="/articles" className="hover:text-teal-700">راهنماها</Link>
       </nav>
@@ -83,12 +83,12 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
       <TelegramCta
         title="سؤال بیشتری دارید؟"
-        body="برای راهنمایی بیشتر و معرفی داروخانه یا مرکز مجاز، در تلگرام پپتیدیار پیام بدهید. پپتیدیار خودش چیزی نمی‌فروشد."
+        body="برای راهنمایی بیشتر و معرفی داروخانه یا مرکز مجاز، در تلگرام @peptideha یا @peptideyar پیام بدهید. پپتیدها خودش چیزی نمی‌فروشد."
         button="پیام در تلگرام"
       />
 
       <p className="mt-6 text-xs leading-6 text-slate-500">
-        این مطلب آموزشی است و جای تشخیص یا نسخهٔ پزشک را نمی‌گیرد. دوز و روش مصرف در پپتیدیار نوشته نمی‌شود.
+        این مطلب آموزشی است و جای تشخیص یا نسخهٔ پزشک را نمی‌گیرد. دوز و روش مصرف در پپتیدها نوشته نمی‌شود.
       </p>
 
       {more.length > 0 ? (

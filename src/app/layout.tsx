@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 import "./globals.css";
 
 const description =
-  "دانشنامهٔ آموزشی پپتیدیار: شناسنامهٔ پپتیدها، قرص‌ها، روغن‌های تزریقی و پودرهای خام. بدون فروش، بدون قیمت و بدون راهنمای مصرف انسانی.";
+  "دانشنامهٔ آموزشی پپتیدها: شناسنامهٔ پپتیدها، قرص‌ها، روغن‌های تزریقی و پودرهای خام. بدون فروش، بدون قیمت و بدون راهنمای مصرف انسانی.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -38,14 +38,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#042f2e",
-  colorScheme: "dark",
+  themeColor: "#1c326c",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fa" dir="rtl" className="dark h-full antialiased" suppressHydrationWarning>
-      <body className="flex min-h-svh flex-col bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <html lang="fa" dir="rtl" className="h-full antialiased" suppressHydrationWarning>
+      <body className="flex min-h-svh flex-col bg-[#e7eef8] text-[#1b2433] dark:bg-[#101a38] dark:text-slate-100">
         <a
           href="#content"
           className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-teal-700 focus:px-4 focus:py-3 focus:text-white"

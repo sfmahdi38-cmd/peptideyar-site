@@ -6,7 +6,7 @@ import { Rss } from "lucide-react";
 export const metadata = pageMetadata({
   path: "/articles",
   title: "راهنماها و مقاله‌های پپتید",
-  description: "راهنماهای روزانهٔ پپتیدیار دربارهٔ پپتیدها، خرید آگاهانه، وضعیت قانونی و پژوهش‌های تازه. آموزشی، با منبع، و بدون فروش.",
+  description: "راهنماهای روزانهٔ پپتیدها دربارهٔ پپتیدها، خرید آگاهانه، وضعیت قانونی و پژوهش‌های تازه. آموزشی، با منبع، و بدون فروش.",
 });
 
 export default function ArticlesPage() {
@@ -22,7 +22,7 @@ export default function ArticlesPage() {
         </a>
       </div>
       <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600 dark:text-slate-300">
-        هر روز یک راهنمای تازه: از «پپتید چیست» تا اینکه پیش از خرید چه چیزهایی را بررسی کنید. پپتیدیار چیزی نمی‌فروشد و این‌جا فقط آموزش و راهنمایی است.
+        هر روز یک راهنمای تازه: از «پپتید چیست» تا اینکه پیش از خرید چه چیزهایی را بررسی کنید. پپتیدها چیزی نمی‌فروشد و این‌جا فقط آموزش و راهنمایی است.
       </p>
       <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {articles.map((article) => (

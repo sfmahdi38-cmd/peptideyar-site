@@ -89,7 +89,7 @@ export function HomeView({ latest }: { latest: ArticleSummary[] }) {
           </div>
           <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-6 dark:border-slate-800 dark:from-slate-900 dark:to-slate-950">
             <div aria-hidden className="pointer-events-none absolute -top-24 -end-24 size-64 rounded-full bg-teal-400/20 blur-3xl" />
-            <Vial name="BPC-157" formula="C62H98N16O22" capColor="#0d9488" dark={dark} large />
+            <Vial name="BPC-157" formula="C62H98N16O22" capColor="#243f86" dark={dark} large />
             <div className="relative mt-4 flex flex-wrap justify-center gap-2 text-xs font-bold">
               <span className="inline-flex items-center gap-1 rounded-full bg-teal-100 px-3 py-1 text-teal-800 dark:bg-teal-950 dark:text-teal-200">
                 <BookCheck className="size-3.5" aria-hidden />

@@ -13,7 +13,7 @@ export function GET() {
     "",
     "> Persian and English educational encyclopedia of peptides and related research compounds. It sells nothing, lists no prices, and gives no doses. Every paper on a monograph page has a PubMed ID and DOI checked against PubMed. Legal status is given for the UK/EU, with a note to check Iran FDA registration.",
     "",
-    `Contact and referrals to licensed pharmacies: ${site.telegram}`,
+    `Contact and referrals to licensed pharmacies: ${site.telegrams.map((item) => item.url).join(" and ")}`,
     "",
     "## Guides (Persian, updated daily)",
     "",

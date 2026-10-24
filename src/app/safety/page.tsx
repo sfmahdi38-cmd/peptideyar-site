@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   path: "/safety",
   title: "ایمنی",
-  description: "حدود دانشنامهٔ پپتیدیار: بدون فروش، بدون دوز، و بدون راهنمای تهیه.",
+  description: "حدود دانشنامهٔ پپتیدها: بدون فروش، بدون دوز، و بدون راهنمای تهیه.",
 });
 
 export default function SafetyPage() {

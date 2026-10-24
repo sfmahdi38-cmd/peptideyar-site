@@ -45,7 +45,7 @@ export function Vial({
       <rect x="58" y="78" width="64" height="78" rx="3" fill={dark ? "#0f172a" : "#ffffff"} stroke={dark ? "#334155" : "#e2e8f0"} />
       <rect x="58" y="78" width="64" height="6" fill={capColor} />
       <text x="90" y="98" textAnchor="middle" fill={capColor} fontSize="7" fontFamily="sans-serif">
-        PEPTIDEYAR
+        PEPTIDEHA
       </text>
       <text x="90" y="116" textAnchor="middle" fill={dark ? "#f8fafc" : "#0f172a"} fontSize={label.length > 12 ? "8" : "11"} fontWeight="700" fontFamily="sans-serif">
         {label.slice(0, 14)}

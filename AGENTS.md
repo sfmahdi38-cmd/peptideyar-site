@@ -8,11 +8,11 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 <!-- END:nextjs-agent-rules -->
 
-## Content rules for PeptideYar
+## Content rules for PeptideHa
 
 - Monographs live in `src/lib/catalog/monographs.ts`, keyed by catalog slug.
 - Every paper needs a `pmid` and `doi` that were checked against PubMed. Copy titles and years from PubMed, never from memory.
 - Never add doses, dosing schedules, reconstitution steps, or sourcing routes. Report trial results without dose numbers.
 - Run `npm run lint` and `npm run build` before pushing.
-- Daily guides are Markdown files in `content/articles` (copy `_template.md`). `related` must list existing catalog slugs or the build fails. Write commercial-intent topics (for example "خرید پپتید") as honest buyer guidance; never imply PeptideYar sells anything.
-- Do not add `public/_redirects` rules that rewrite a path to its `.html` file (for example `/catalog /catalog.html 200`). Cloudflare already serves `/catalog` from `catalog.html`, and such a rewrite loops with its automatic `.html` redirect (308). The one rule in `public/_redirects` goes the other way on purpose: it serves the Google verification file at its `.html` URL without that 308.
+- Daily guides are Markdown files in `content/articles` (copy `_template.md`). `related` must list existing catalog slugs or the build fails. Write commercial-intent topics (for example "خرید پپتید") as honest buyer guidance; never imply PeptideHa sells anything.
+- Do not add `public/_redirects` rules that rewrite a path to its `.html` file (for example `/catalog /catalog.html 200`). Cloudflare already serves `/catalog` from `catalog.html`, and such a rewrite loops with its automatic `.html` redirect (308).

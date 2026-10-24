@@ -1,4 +1,4 @@
-# پپتیدیار
+# پپتیدها
 
 دانشنامهٔ آموزشی و دوزبانه برای نام‌های یک فهرست پژوهشی: پپتید، قرص، روغن تزریقی و پودر خام. فروش، قیمت، دوز و روش مصرف ندارد.
 
@@ -49,6 +49,6 @@ npm run build
 
 ## انتشار خودکار
 
-هر push روی `main` در GitHub Actions (`.github/workflows/deploy.yml`) این کارها را می‌کند: `npm ci`، lint و build، انتشار روی پروژهٔ Pages به نام `peptideyar`، و در آخر چک می‌کند صفحه‌های اصلی کد ۲۰۰ بدهند. اگر صفحه‌ای خطا بدهد یا در حلقهٔ ریدایرکت بیفتد، اجرا قرمز می‌شود.
+هر push روی `main` در GitHub Actions (`.github/workflows/deploy.yml`) این کارها را می‌کند: `npm ci`، lint و build، انتشار روی پروژهٔ Pages به نام `peptideha`، و در آخر چک می‌کند صفحه‌های اصلی کد ۲۰۰ بدهند. اگر صفحه‌ای خطا بدهد یا در حلقهٔ ریدایرکت بیفتد، اجرا قرمز می‌شود.
 
 دو secret در تنظیمات مخزن لازم است: `CLOUDFLARE_API_TOKEN` (توکنی با دسترسی Cloudflare Pages: Edit) و `CLOUDFLARE_ACCOUNT_ID`. از صفحهٔ Actions هم می‌شود با «Run workflow» دستی منتشر کرد.

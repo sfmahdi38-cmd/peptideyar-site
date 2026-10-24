@@ -15,17 +15,17 @@ const LanguageContext = createContext<LanguageValue | null>(null);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLang] = useState<Lang>("fa");
-  const [dark, setDark] = useState(true);
+  const [dark, setDark] = useState(false);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const storedLang = window.localStorage.getItem("py-lang");
-    const storedTheme = window.localStorage.getItem("py-theme");
-    // Server HTML is always Persian and dark. Preferences are applied after mount
+    const storedLang = window.localStorage.getItem("ph-lang");
+    const storedTheme = window.localStorage.getItem("ph-theme");
+    // Server HTML is always Persian and light. Preferences are applied after mount
     // so the first render matches and hydration does not break.
     // eslint-disable-next-line react-hooks/set-state-in-effect -- localStorage is not available during SSR
     setLang(storedLang === "en" ? "en" : "fa");
-    setDark(storedTheme === "light" ? false : true);
+    setDark(storedTheme === "dark");
     setReady(true);
   }, []);
 
@@ -34,8 +34,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.lang = lang === "fa" ? "fa" : "en";
     document.documentElement.dir = lang === "fa" ? "rtl" : "ltr";
     document.documentElement.classList.toggle("dark", dark);
-    window.localStorage.setItem("py-lang", lang);
-    window.localStorage.setItem("py-theme", dark ? "dark" : "light");
+    window.localStorage.setItem("ph-lang", lang);
+    window.localStorage.setItem("ph-theme", dark ? "dark" : "light");
   }, [lang, dark, ready]);
 
   return <LanguageContext.Provider value={{ lang, setLang, dark, setDark }}>{children}</LanguageContext.Provider>;

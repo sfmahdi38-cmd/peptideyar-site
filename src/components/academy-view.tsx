@@ -38,11 +38,11 @@ const modules = [
     enTitle: "HPLC is purity, mass spectrometry is identity",
     fa: [
       "کروماتوگرافی فاز معکوس با جذب حدود ۲۱۴ نانومتر مساحت پیک اصلی را نسبت به پیک‌های دیگر می‌سنجد. این عدد خلوص است، نه اثبات اینکه پیک اصلی همان پپتید ادعاشده است.",
-      "طیف‌سنجی جرمی نسبت جرم به بار را با جرم نظری مقایسه می‌کند. بدون هر دو برگه، برچسب ویال فقط یک ادعا است. پپتیدیار خلوص هیچ سری ساختی را تأیید نمی‌کند و روی برچسب ویال درصد ساختگی نمی‌گذارد.",
+      "طیف‌سنجی جرمی نسبت جرم به بار را با جرم نظری مقایسه می‌کند. بدون هر دو برگه، برچسب ویال فقط یک ادعا است. پپتیدها خلوص هیچ سری ساختی را تأیید نمی‌کند و روی برچسب ویال درصد ساختگی نمی‌گذارد.",
     ],
     en: [
       "Reversed-phase chromatography, read near 214 nm, compares the main peak area with the other peaks. That number is purity. It does not prove the main peak is the peptide named on the label.",
-      "Mass spectrometry compares mass-to-charge with the theoretical mass. Without both documents, a vial label is only a claim. PeptideYar does not certify any batch and does not print a made-up purity on the vial.",
+      "Mass spectrometry compares mass-to-charge with the theoretical mass. Without both documents, a vial label is only a claim. PeptideHa does not certify any batch and does not print a made-up purity on the vial.",
     ],
   },
   {

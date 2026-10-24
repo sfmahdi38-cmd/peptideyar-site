@@ -17,8 +17,8 @@ export function SiteFooter() {
           <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-400">
             {tx(
               lang,
-              "پپتیدیار دانشنامهٔ آموزشی است و فروشنده، داروخانه یا مشاور درمان نیست. هیچ ماده‌ای در این فهرست برای مصرف انسانی توصیه نمی‌شود. بسیاری از نام‌ها در بریتانیا و اتحادیه اروپا داروی مجاز نیستند و برخی استروئیدهای آنابولیک داروی کنترل‌شده‌اند. اطلاعات اینجا تشخیص یا تجویز نیست.",
-              "PeptideYar is an educational encyclopedia. It is not a seller, a pharmacy, or a treatment adviser. Nothing in this index is recommended for human use. Many names are not authorised medicines in the UK or the EU, and some anabolic steroids are controlled drugs. This is not diagnosis or a prescription.",
+              "پپتیدها دانشنامهٔ آموزشی است و فروشنده، داروخانه یا مشاور درمان نیست. هیچ ماده‌ای در این فهرست برای مصرف انسانی توصیه نمی‌شود. بسیاری از نام‌ها در بریتانیا و اتحادیه اروپا داروی مجاز نیستند و برخی استروئیدهای آنابولیک داروی کنترل‌شده‌اند. اطلاعات اینجا تشخیص یا تجویز نیست.",
+              "PeptideHa is an educational encyclopedia. It is not a seller, a pharmacy, or a treatment adviser. Nothing in this index is recommended for human use. Many names are not authorised medicines in the UK or the EU, and some anabolic steroids are controlled drugs. This is not diagnosis or a prescription.",
             )}
           </p>
         </div>
@@ -33,19 +33,26 @@ export function SiteFooter() {
           <p className="mt-2 text-slate-600 dark:text-slate-400">
             {tx(lang, "راهنمایی بیشتر و معرفی داروخانه یا مرکز مجاز:", "Further guidance and referral to a licensed pharmacy or centre:")}
           </p>
-          <a
-            href={site.telegram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2 inline-flex items-center gap-1.5 font-bold text-teal-700 hover:text-teal-600 dark:text-teal-300"
-          >
-            <Send className="size-4" aria-hidden />
-            <bdi dir="ltr">{site.telegramHandle}</bdi>
-          </a>
+          <ul className="mt-2 space-y-1">
+            {site.telegrams.map((item) => (
+              <li key={item.handle}>
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 font-bold text-teal-700 hover:text-teal-600 dark:text-teal-300"
+                >
+                  <Send className="size-4" aria-hidden />
+                  <bdi dir="ltr">{item.handle}</bdi>
+                  <span className="font-normal text-slate-500">{tx(lang, item.nameFa, item.name)}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
       <p className="border-t border-slate-200 px-4 py-4 text-center text-xs text-slate-500 dark:border-slate-800">
-        © ۲۰۲۶ PeptideYar
+        © ۲۰۲۶ {site.name}
       </p>
     </footer>
   );

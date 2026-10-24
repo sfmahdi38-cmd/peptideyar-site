@@ -37,15 +37,15 @@ export function compoundFaq(compound: Compound, monograph?: Monograph): FaqItem[
   });
 
   items.push({
-    q: { fa: `خرید ${compound.name}؛ آیا پپتیدیار آن را می‌فروشد؟`, en: `Buying ${compound.name}: does PeptideYar sell it?` },
+    q: { fa: `خرید ${compound.name}؛ آیا پپتیدها آن را می‌فروشد؟`, en: `Buying ${compound.name}: does PeptideHa sell it?` },
     a: compound.flags.includes("severe-hazard")
       ? {
-          fa: "نه. پپتیدیار هیچ ماده‌ای نمی‌فروشد و برای این ماده، به‌خاطر خطر شدیدش، به هیچ منبعی هم ارجاع نمی‌دهد.",
-          en: "No. PeptideYar sells nothing, and because of its severe hazard it does not refer anyone to a source for this substance.",
+          fa: "نه. پپتیدها هیچ ماده‌ای نمی‌فروشد و برای این ماده، به‌خاطر خطر شدیدش، به هیچ منبعی هم ارجاع نمی‌دهد.",
+          en: "No. PeptideHa sells nothing, and because of its severe hazard it does not refer anyone to a source for this substance.",
         }
       : {
-          fa: `نه. پپتیدیار فروشنده نیست و قیمت یا لینک خرید ندارد. برای راهنمایی و معرفی داروخانه یا مرکز مجاز، در تلگرام ${site.telegramHandle} پیام بدهید.`,
-          en: `No. PeptideYar is not a seller and has no prices or shop links. For guidance and a referral to a licensed pharmacy or centre, message ${site.telegramHandle} on Telegram.`,
+          fa: `نه. پپتیدها فروشنده نیست و قیمت یا لینک خرید ندارد. برای راهنمایی و معرفی داروخانه یا مرکز مجاز، در تلگرام ${site.telegramHandle} پیام بدهید.`,
+          en: `No. PeptideHa is not a seller and has no prices or shop links. For guidance and a referral to a licensed pharmacy or centre, message ${site.telegramHandle} on Telegram.`,
         },
   });
 

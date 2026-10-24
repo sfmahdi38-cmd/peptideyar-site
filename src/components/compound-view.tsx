@@ -224,8 +224,8 @@ export function CompoundView({ slug }: { slug: string }) {
           title={tx(lang, "سؤالی دربارهٔ این ماده دارید؟", "Questions about this substance?")}
           body={tx(
             lang,
-            "برای راهنمایی بیشتر و معرفی داروخانه یا مرکز مجاز، در تلگرام پپتیدیار پیام بدهید. پپتیدیار خودش چیزی نمی‌فروشد.",
-            "For further guidance and a referral to a licensed pharmacy or centre, message PeptideYar on Telegram. PeptideYar itself sells nothing.",
+            "برای راهنمایی بیشتر و معرفی داروخانه یا مرکز مجاز، در تلگرام @peptideha یا @peptideyar پیام بدهید. پپتیدها خودش چیزی نمی‌فروشد.",
+            "For further guidance and a referral to a licensed pharmacy or centre, message @peptideha or @peptideyar on Telegram. PeptideHa itself sells nothing.",
           )}
           button={tx(lang, "پیام در تلگرام", "Message on Telegram")}
         />

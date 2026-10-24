@@ -3,7 +3,8 @@
 import { tx, useLanguage } from "@/components/language";
 import { cn } from "cn";
 import { site } from "@/lib/site";
-import { Atom, BookOpen, Calculator, FlaskConical, GitCompare, Menu, Moon, Newspaper, Send, ShieldAlert, Sun, X } from "lucide-react";
+import { BookOpen, Calculator, FlaskConical, GitCompare, Menu, Moon, Newspaper, Send, ShieldAlert, Sun, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -39,12 +40,10 @@ export function SiteHeader() {
       <header className="border-b border-slate-200/80 bg-white/90 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/90">
         <div className="mx-auto flex h-16 max-w-6xl items-center gap-3 px-4">
           <Link href="/" className="flex min-w-0 items-center gap-2.5" onClick={() => setOpen(false)}>
-            <span className="flex size-10 items-center justify-center rounded-xl bg-teal-600 text-white">
-              <Atom className="size-5" aria-hidden />
-            </span>
+            <Image src="/logo.svg" alt="" width={40} height={40} className="size-10" />
             <span className="min-w-0">
-              <span className="block text-lg font-extrabold tracking-tight text-teal-700 dark:text-teal-300">
-                {tx(lang, "پپتیدیار", "PeptideYar")}
+              <span className="wordmark block text-2xl leading-none font-semibold tracking-tight text-teal-800 dark:text-teal-200">
+                {tx(lang, site.nameFa, site.name)}
               </span>
               <span className="hidden truncate text-[11px] text-slate-500 sm:block dark:text-slate-400">
                 {tx(lang, "دانشنامهٔ پژوهشی، بدون فروش", "Research encyclopedia, no sales")}
@@ -73,16 +72,20 @@ export function SiteHeader() {
             })}
           </nav>
           <div className="ms-auto flex items-center gap-2 lg:ms-0">
-            <a
-              href={site.telegram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-xl border border-slate-200 p-2 text-teal-700 dark:border-slate-700 dark:text-teal-300"
-              aria-label={tx(lang, "تلگرام پپتیدیار", "PeptideYar on Telegram")}
-              title={tx(lang, "تلگرام پپتیدیار", "PeptideYar on Telegram")}
-            >
-              <Send className="size-4" aria-hidden />
-            </a>
+            {site.telegrams.map((item) => (
+              <a
+                key={item.handle}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 p-2 text-xs font-bold text-teal-700 dark:border-slate-700 dark:text-teal-300"
+                aria-label={tx(lang, `تلگرام ${item.nameFa} ${item.handle}`, `${item.name} on Telegram ${item.handle}`)}
+                title={item.handle}
+              >
+                <Send className="size-4" aria-hidden />
+                <bdi dir="ltr" className="hidden xl:inline">{item.handle}</bdi>
+              </a>
+            ))}
             <button
               type="button"
               className="rounded-xl border border-slate-200 px-3 py-2 text-xs font-bold text-teal-800 dark:border-slate-700 dark:text-teal-200"
@@ -121,16 +124,19 @@ export function SiteHeader() {
                 {tx(lang, item.fa, item.en)}
               </Link>
             ))}
-            <a
-              href={site.telegram}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setOpen(false)}
-              className="flex items-center gap-2 rounded-xl px-3 py-3 text-sm font-semibold text-teal-700 hover:bg-slate-100 dark:text-teal-300 dark:hover:bg-slate-900"
-            >
-              <Send className="size-4" aria-hidden />
-              {tx(lang, "راهنمایی در تلگرام", "Ask on Telegram")}
-            </a>
+            {site.telegrams.map((item) => (
+              <a
+                key={item.handle}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-2 rounded-xl px-3 py-3 text-sm font-semibold text-teal-700 hover:bg-slate-100 dark:text-teal-300 dark:hover:bg-slate-900"
+              >
+                <Send className="size-4" aria-hidden />
+                <bdi dir="ltr">{item.handle}</bdi>
+              </a>
+            ))}
           </nav>
         ) : null}
       </header>

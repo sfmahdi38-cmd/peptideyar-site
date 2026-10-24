@@ -23,7 +23,7 @@ export function JsonLd() {
             alternateName: site.nameFa,
             url: site.url,
             logo: `${site.url}/icon.svg`,
-            sameAs: [site.telegram],
+            sameAs: site.telegrams.map((item) => item.url),
           },
         ],
       }}

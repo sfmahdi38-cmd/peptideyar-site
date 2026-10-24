@@ -8,15 +8,21 @@ export function TelegramCta({ title, body, button }: { title: string; body: stri
         <h2 className="font-black text-teal-900 dark:text-teal-100">{title}</h2>
         <p className="mt-1 text-sm leading-7 text-teal-900/80 dark:text-teal-100/80">{body}</p>
       </div>
-      <a
-        href={site.telegram}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-teal-700 px-5 text-sm font-bold text-white hover:bg-teal-600"
-      >
-        <Send className="size-4" aria-hidden />
-        {button}
-      </a>
+      <div className="flex shrink-0 flex-col gap-2">
+        {site.telegrams.map((item) => (
+          <a
+            key={item.handle}
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-teal-700 px-5 text-sm font-bold text-white hover:bg-teal-600"
+          >
+            <Send className="size-4" aria-hidden />
+            <bdi dir="ltr">{item.handle}</bdi>
+          </a>
+        ))}
+        <span className="sr-only">{button}</span>
+      </div>
     </aside>
   );
 }
